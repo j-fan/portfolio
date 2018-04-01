@@ -1,0 +1,18 @@
+{
+  "name": "interceptor_chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js -e js,pug,styl"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.17.1",
+    "pug": "^2.0.1",
+    "reload": "^2.2.2",
+    "stylus": "^0.54.5"
+  }
+}
