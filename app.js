@@ -10,10 +10,10 @@ app.set('views', path.join(__dirname,'views'));
 app.set('view engine','pug');
 app.use(stylus.middleware(
   { src: path.join(__dirname,'/stylus')
-  ,	dest: path.join(__dirname,'/public', '/css')
+  ,	dest: path.join(__dirname,'/docs', '/css')
   }
 ));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/docs'));
 
 // home route
 app.get('/', function(req,res){

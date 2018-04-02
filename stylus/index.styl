@@ -31,7 +31,6 @@ body
 
 
 	#nav-bar
-		//background-color: white
 		-webkit-user-select: none
 		-moz-user-select: none
 		ms-user-select: none
@@ -45,13 +44,23 @@ body
 		top: 0
 		left: 0
 		z-index: 99
-		//transition: background-color 0.3s ease
 		&.banner-mode
-			background-color: transparent
+			.background
+				height: 0px
+		.background
+			bottom: 0
+			left: 0
+			transition: height 0.3s ease
+			position:absolute
+			width: 100%
+			height: $nav-bar-height
+			background: white
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1)
 		.nav-item
 			height: 100%
 			margin: 0px 10px
 			text-align: center
+			z-index: 100
 			.border
 				margin-top: 4px
 				height: 3px
@@ -65,42 +74,42 @@ body
 	#content
 		margin: 0 auto
 		max-width: 1000px
-		height: "calc(100vh - %s)" % $nav-bar-height
-		overflow:hidden
+		min-height: "calc(100vh - %s)" % $nav-bar-height
 		&.banner-mode
 			display: none
-		#content-inner
-			width: 100%
-			height:100%
-			overflow-y: auto
-			//padding-right: 16px
-			.page
+		.page
+			height: 0
+			opacity: 0
+			overflow:hidden
+			padding: 0
+			&.active
+				padding: 40px
+				height: auto
+				opacity: 1
+			.item
 				height: 0
-				opacity: 0
-				overflow:hidden
 				padding: 0
+				opacity: 0
+				margin-top: 20px
+				transition: none
 				&.active
-					padding: 40px
-					height: auto
+					transition: height 0.3s ease-in,
+											opacity 0.3s ease-in,
+											margin-top 0.3s ease-in
+					margin-top: 0
+					padding: 10px
 					opacity: 1
-				.item
-					height: 0
-					padding: 0
-					opacity: 0
-					margin-top: 20px
-					transition: none
-					&.active
-						transition: height 0.3s ease-in,
-												opacity 0.3s ease-in,
-												margin-top 0.3s ease-in
-						margin-top: 0
-						padding: 10px
-						opacity: 1
 
 
 @media only screen and (max-width: 400px)
 	body
-		font-size: 14px
+		font-size: 4.5vw
+		#banner
+			#banner-centre
+				#banner-title
+					font-size: 22vw
+				#banner-subtitle
+					font-size: 6vw
 		#content
 			.page
 				&.active
