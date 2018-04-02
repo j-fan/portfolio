@@ -1,10 +1,11 @@
 {
-  "name": "interceptor_chat",
+  "name": "personal_website",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js -e js,pug,styl"
+    "start": "nodemon app.js -e js,pug,styl ",
+    "make": "stylus stylus --out docs/css & pug views --out docs"
   },
   "author": "",
   "license": "ISC",

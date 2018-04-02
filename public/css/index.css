@@ -1,3 +1,120 @@
 body {
-  color: #808080;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+body #banner {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  ms-user-select: none;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+body #banner #banner-centre {
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+body #banner #banner-centre #banner-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+body #banner #banner-centre #banner-subtitle {
+  font-size: 24px;
+}
+body #banner #banner-centre #banner-subtitle2 {
+  margin-top: 10px;
+}
+body #nav-bar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  ms-user-select: none;
+  display: flex;
+  min-height: 60px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+body #nav-bar.banner-mode {
+  background-color: transparent;
+}
+body #nav-bar .nav-item {
+  height: 100%;
+  margin: 0px 10px;
+  text-align: center;
+}
+body #nav-bar .nav-item .border {
+  margin-top: 4px;
+  height: 3px;
+  background: #000;
+  width: 0;
+  transition: width 0.3s ease;
+}
+body #nav-bar .nav-item:hover,
+body #nav-bar .nav-item.active {
+  cursor: pointer;
+}
+body #nav-bar .nav-item:hover .border,
+body #nav-bar .nav-item.active .border {
+  width: 100%;
+}
+body #content {
+  margin: 0 auto;
+  max-width: 1000px;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+body #content.banner-mode {
+  display: none;
+}
+body #content #content-inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+body #content #content-inner .page {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+}
+body #content #content-inner .page.active {
+  padding: 40px;
+  height: auto;
+  opacity: 1;
+}
+body #content #content-inner .page .item {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  margin-top: 20px;
+  transition: none;
+}
+body #content #content-inner .page .item.active {
+  transition: height 0.3s ease-in, opacity 0.3s ease-in, margin-top 0.3s ease-in;
+  margin-top: 0;
+  padding: 10px;
+  opacity: 1;
+}
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+  body #content .page.active {
+    padding: 0px 30px;
+  }
+  body #content .page .item.active {
+    padding: 10px 0;
+  }
 }
