@@ -9,14 +9,17 @@ body #banner {
   -moz-user-select: none;
   ms-user-select: none;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
+}
+body #banner.banner-mode #banner-centre {
+  height: 100vh;
 }
 body #banner #banner-centre {
   background: #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 60px);
   flex-direction: column;
 }
 body #banner #banner-centre #banner-title {
@@ -45,6 +48,9 @@ body #nav-bar {
   top: 0;
   left: 0;
   z-index: 99;
+}
+body #nav-bar.banner-mode {
+  min-height: 120px;
 }
 body #nav-bar.banner-mode .background {
   height: 0px;

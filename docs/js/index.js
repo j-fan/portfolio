@@ -41,12 +41,15 @@ var navBar = {
   addNavBarScrollAnim : function(){
     window.addEventListener("scroll", function(){
       var navBar = document.querySelector("#nav-bar")
-      var navBarHeight = navBar.offsetHeight
+      var navBarHeight = 60
       var pos = navBar.getBoundingClientRect().top
+      var banner = document.querySelector("#banner")
       if(pos <= navBarHeight){
         navBar.classList.remove("banner-mode")
+        banner.classList.remove("banner-mode")
       } else {
         navBar.classList.add("banner-mode")
+        banner.classList.add("banner-mode")
       }
     })
   }
