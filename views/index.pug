@@ -1,3 +1,11 @@
+mixin overlay(tools,title,description)
+	.overlay
+		.top-line
+		.tools= tools
+		.title= title 
+		.description= description
+		.bottom-line 
+	
 doctype html
 html
 	head
@@ -17,44 +25,29 @@ html
 			.background
 			.nav-item.creative-code Creative code
 				.border
+			.divider
 			.nav-item.3d-art 3D art
 				.border
+			.divider
 			.nav-item.illustration Illustration
 				.border
+			.divider
 			.nav-item.about About
 				.border
 		#content.banner-mode
 			.page.creative-code
-				.item.
-					1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nulla non dui accumsan sollicitudin eu a orci. Etiam finibus pharetra nibh, rutrum blandit odio consequat quis. Duis fringilla vestibulum eros, et dictum nulla fringilla sit amet. Integer vehicula lobortis nisl ut mollis. Nam elementum fringilla sem. Quisque efficitur sem vitae fermentum pulvinar. Duis efficitur venenatis est, in pretium ante imperdiet eu. Curabitur dapibus dolor nisl, eu porttitor sem rhoncus eleifend. Quisque ac tortor augue. Maecenas sed rhoncus erat. Donec quis erat eu nibh malesuada molestie at a eros. Suspendisse feugiat tortor et ex maximus volutpat. Nulla aliquet eget est ut auctor.
-				.item.
-					2 Fusce placerat erat non ex hendrerit consectetur. Suspendisse ac erat enim. Aenean tempor elit sit amet metus lacinia commodo. Donec nec elementum nisi. Mauris egestas lorem nec nibh posuere, et vulputate libero mollis. Nam vulputate facilisis massa at mattis. Curabitur commodo interdum convallis. Suspendisse rutrum turpis nec dui consectetur facilisis. Morbi et imperdiet ex. Proin nec diam ultrices, pretium nisi a, finibus odio. Pellentesque aliquet augue quis blandit commodo. Aenean lorem libero, lobortis id sagittis eget, consectetur aliquam eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus non finibus risus, volutpat pellentesque massa. Proin semper rutrum velit non laoreet. Donec congue hendrerit sem quis luctus.
-				.item.
-					3 Etiam ultrices, erat a auctor finibus, neque elit egestas libero, in placerat velit leo sed turpis. Etiam congue a ipsum a commodo. Mauris in libero nunc. Proin dictum nisl ac velit aliquam, ut imperdiet risus viverra. Nunc quis arcu sed ex lobortis bibendum. Proin et vestibulum sem, id suscipit metus. Duis nec vulputate ipsum. Aliquam scelerisque risus velit, et vehicula lorem rutrum in. Aenean egestas nibh ipsum, eget vulputate risus sodales sit amet. Donec dolor libero, ultricies eu commodo vel, faucibus eu felis. Donec eros orci, laoreet eu venenatis at, iaculis non dui. Duis tempus eros a nunc laoreet euismod. Quisque condimentum gravida justo, vitae dapibus dui elementum ac. Donec ac purus luctus, aliquet felis et, sagittis libero.
-				.item.
-					4 Sed a scelerisque tortor, eget molestie arcu. Donec faucibus massa odio, vel faucibus tortor efficitur vel. Ut sed tempus justo. Duis in magna eu dui vestibulum mattis id vel magna. Aenean ac varius sapien, et placerat ligula. Pellentesque eu maximus leo, quis vestibulum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				.item.
-					5 Etiam feugiat urna et ante scelerisque, sed semper orci tincidunt. Quisque venenatis sagittis neque. Nam feugiat, nisl ut aliquet rhoncus, neque nisl maximus erat, vel vestibulum quam erat quis sapien. Suspendisse potenti. Phasellus pretium vulputate odio. Ut quis tincidunt orci, lobortis tempor justo. Duis id augue malesuada mauris auctor porttitor sit amet vel nisi. In mollis, erat ut congue porttitor, urna lectus accumsan sem, sed pulvinar elit neque eu quam. Nulla nec tellus ut turpis tempor ornare.  
+				.item
+					+overlay("processing / photoshop","Flow Fields","a code sketch")
+					img(src="img/poste4.jpg")
+				.item
+					+overlay("processing / photoshop","White Apartments","illustration exploration")
+					img(src="img/white_apartments.jpg")
 			.page.3d-art
-				.item.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nulla non dui accumsan sollicitudin eu a orci. Etiam finibus pharetra nibh, rutrum blandit odio consequat quis. Duis fringilla vestibulum eros, et dictum nulla fringilla sit amet. Integer vehicula lobortis nisl ut mollis. Nam elementum fringilla sem. Quisque efficitur sem vitae fermentum pulvinar. Duis efficitur venenatis est, in pretium ante imperdiet eu. Curabitur dapibus dolor nisl, eu porttitor sem rhoncus eleifend. Quisque ac tortor augue. Maecenas sed rhoncus erat. Donec quis erat eu nibh malesuada molestie at a eros. Suspendisse feugiat tortor et ex maximus volutpat. Nulla aliquet eget est ut auctor.
-					Sed a scelerisque tortor, eget molestie arcu. Donec faucibus massa odio, vel faucibus tortor efficitur vel. Ut sed tempus justo. Duis in magna eu dui vestibulum mattis id vel magna. Aenean ac varius sapien, et placerat ligula. Pellentesque eu maximus leo, quis vestibulum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				.item.
-					Etiam feugiat urna et ante scelerisque, sed semper orci tincidunt. Quisque venenatis sagittis neque. Nam feugiat, nisl ut aliquet rhoncus, neque nisl maximus erat, vel vestibulum quam erat quis sapien. Suspendisse potenti. Phasellus pretium vulputate odio. Ut quis tincidunt orci, lobortis tempor justo. Duis id augue malesuada mauris auctor porttitor sit amet vel nisi. In mollis, erat ut congue porttitor, urna lectus accumsan sem, sed pulvinar elit neque eu quam. Nulla nec tellus ut turpis tempor ornare.  
-			.page.illustration
-				.item.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nulla non dui accumsan sollicitudin eu a orci. Etiam finibus pharetra nibh, rutrum blandit odio consequat quis. Duis fringilla vestibulum eros, et dictum nulla fringilla sit amet. Integer vehicula lobortis nisl ut mollis. Nam elementum fringilla sem. Quisque efficitur sem vitae fermentum pulvinar. Duis efficitur venenatis est, in pretium ante imperdiet eu. Curabitur dapibus dolor nisl, eu porttitor sem rhoncus eleifend. Quisque ac tortor augue. Maecenas sed rhoncus erat. Donec quis erat eu nibh malesuada molestie at a eros. Suspendisse feugiat tortor et ex maximus volutpat. Nulla aliquet eget est ut auctor.
-			.page.about
-				.item.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nulla non dui accumsan sollicitudin eu a orci. Etiam finibus pharetra nibh, rutrum blandit odio consequat quis. Duis fringilla vestibulum eros, et dictum nulla fringilla sit amet. Integer vehicula lobortis nisl ut mollis. Nam elementum fringilla sem. Quisque efficitur sem vitae fermentum pulvinar. Duis efficitur venenatis est, in pretium ante imperdiet eu. Curabitur dapibus dolor nisl, eu porttitor sem rhoncus eleifend. Quisque ac tortor augue. Maecenas sed rhoncus erat. Donec quis erat eu nibh malesuada molestie at a eros. Suspendisse feugiat tortor et ex maximus volutpat. Nulla aliquet eget est ut auctor.
-					Fusce placerat erat non ex hendrerit consectetur. Suspendisse ac erat enim. Aenean tempor elit sit amet metus lacinia commodo. Donec nec elementum nisi. Mauris egestas lorem nec nibh posuere, et vulputate libero mollis. Nam vulputate facilisis massa at mattis. Curabitur commodo interdum convallis. Suspendisse rutrum turpis nec dui consectetur facilisis. Morbi et imperdiet ex. Proin nec diam ultrices, pretium nisi a, finibus odio. Pellentesque aliquet augue quis blandit commodo. Aenean lorem libero, lobortis id sagittis eget, consectetur aliquam eros.
-				.item.
-					Etiam ultrices, erat a auctor finibus, neque elit egestas libero, in placerat velit leo sed turpis. Etiam congue a ipsum a commodo. Mauris in libero nunc. Proin dictum nisl ac velit aliquam, ut imperdiet risus viverra. Nunc quis arcu sed ex lobortis bibendum. Proin et vestibulum sem, id suscipit metus. Duis nec vulputate ipsum. Aliquam scelerisque risus velit, et vehicula lorem rutrum in. Aenean egestas nibh ipsum, eget vulputate risus sodales sit amet. Donec dolor libero, ultricies eu commodo vel, faucibus eu felis. Donec eros orci, laoreet eu venenatis at, iaculis non dui. Duis tempus eros a nunc laoreet euismod. Quisque condimentum gravida justo, vitae dapibus dui elementum ac. Donec ac purus luctus, aliquet felis et, sagittis libero.
-				.item.
-					Sed a scelerisque tortor, eget molestie arcu. Donec faucibus massa odio, vel faucibus tortor efficitur vel. Ut sed tempus justo. Duis in magna eu dui vestibulum mattis id vel magna. Aenean ac varius sapien, et placerat ligula. Pellentesque eu maximus leo, quis vestibulum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				.item.
-					Etiam feugiat urna et ante scelerisque, sed semper orci tincidunt. Quisque venenatis sagittis neque. Nam feugiat, nisl ut aliquet rhoncus, neque nisl maximus erat, vel vestibulum quam erat quis sapien. Suspendisse potenti. Phasellus pretium vulputate odio. Ut quis tincidunt orci, lobortis tempor justo. Duis id augue malesuada mauris auctor porttitor sit amet vel nisi. In mollis, erat ut congue porttitor, urna lectus accumsan sem, sed pulvinar elit neque eu quam. Nulla nec tellus ut turpis tempor ornare.  			
 
+			.page.illustration
+				.item
+			.page.about
+				.item
 
 		// - add this to enable browser reload on app restart
 		script(src="reload/reload.js")

@@ -41,7 +41,7 @@ var navBar = {
   addNavBarScrollAnim : function(){
     window.addEventListener("scroll", function(){
       var navBar = document.querySelector("#nav-bar")
-      var navBarHeight = 60
+      var navBarHeight = 120
       var pos = navBar.getBoundingClientRect().top
       var banner = document.querySelector("#banner")
       if(pos <= navBarHeight){
@@ -64,10 +64,12 @@ var content = {
       var activePage = document.querySelector(".page.active")
       if(activePage){
         var items = activePage.children
-        console.log(activePage.children)
         for(var i=0; i < items.length;i++){
           var item = items[i]
           content.setElemHeight(item)
+          if(item.querySelector(".overlay")){
+            content.setToParentSize(item.querySelector(".overlay"))
+          }
         }
       }
     })
@@ -85,25 +87,33 @@ var content = {
   },
   showItems : function(pageNum){
     var page = content.pages[pageNum]
-    content.cascadeShowChildren(page)
+    content.cascadeShowChildren(page,200,200)
   },
-  cascadeShowChildren : function(page){
+  cascadeShowChildren : function(page,duration,delay){
     var items = page.children
     for(var i = 0; i<items.length; i++){
       var item = items[i]
       item.classList.remove('active')
-      var duration = 200
-      setTimeout(content.showElem, duration * i + 400, item)
+      setTimeout(content.showElem, duration * i + delay, item)
     }
   },
   showElem : function(elem){
     content.setElemHeight(elem)
     elem.classList.add("active")
+    if(elem.querySelector(".overlay")){
+      content.setToParentSize(elem.querySelector(".overlay"))
+    }
   },
   setElemHeight : function(elem){
     elem.style.height = "auto"
-    var height = elem.offsetHeight
+    var height = elem.naturalHeight
     elem.style.height = height + "px"
+  },
+  setToParentSize: function(elem){
+    var parentHeight = elem.parentElement.clientHeight - 4
+    elem.style.height = parentHeight + "px"
+    var parentWidth = elem.parentElement.clientWidth
+    elem.style.width = parentWidth + "px"
   }
 }
 

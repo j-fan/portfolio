@@ -1,6 +1,6 @@
 $nav-bar-height = 120px
 $nav-bar-height-thin = 50px
-
+$content-width = 1000px
 body
 	margin: 0
 	font-family: 'Lato', sans-serif
@@ -52,6 +52,7 @@ body
 		width: 100%
 		top: 0
 		left: 0
+		z-index: 99
 		&.banner-mode
 			min-height: $nav-bar-height
 			.background
@@ -67,6 +68,8 @@ body
 			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1)
 			z-index: -1
 		.nav-item
+			text-transform: uppercase
+			//font-family: 'Oswald', sans-serif
 			height: 100%
 			margin: 0px 10px
 			text-align: center
@@ -80,9 +83,13 @@ body
 				cursor: pointer
 				.border
 					width: 100%
+		.divider
+			margin-top: -6px
+			&::after
+				content: "//"
 	#content
 		margin: 0 auto
-		max-width: 1000px
+		max-width: $content-width
 		min-height: "calc(100vh - %s)" % $nav-bar-height-thin
 		&.banner-mode
 			display: none
@@ -92,10 +99,12 @@ body
 			overflow:hidden
 			padding: 0
 			&.active
-				padding: 40px
+				padding-top: 30px
+				padding-bottom: 30px
 				height: auto
 				opacity: 1
 			.item
+				cursor:pointer
 				height: 0
 				padding: 0
 				opacity: 0
@@ -105,14 +114,27 @@ body
 					transition: height 0.3s ease-in,
 											opacity 0.3s ease-in,
 											margin-top 0.3s ease-in
-					margin-top: 0
-					padding: 10px
 					opacity: 1
+					margin-top: 0
+					.overlay
+						position: absolute
+						display: flex
+						flex-direction: column
+						align-items: center
+						justify-content: center
+						color:white
+						background-color: rgba(0,0,0,0.8)
+						opacity: 0
+						transition: opacity 0.3s ease
+						&:hover
+							opacity: 1
+					img
+						width: 100%
 
 
 @media only screen and (max-width: 400px)
 	body
-		font-size: 4.5vw
+		font-size: 4vw
 		#banner
 			#banner-centre
 				#banner-title
@@ -122,7 +144,4 @@ body
 		#content
 			.page
 				&.active
-					padding: 0px 30px
-				.item
-					&.active
-						padding:10px 0
+					padding: 0px 10px

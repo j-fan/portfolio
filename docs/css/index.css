@@ -52,6 +52,7 @@ body #nav-bar {
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 99;
 }
 body #nav-bar.banner-mode {
   min-height: 120px;
@@ -71,6 +72,7 @@ body #nav-bar .background {
   z-index: -1;
 }
 body #nav-bar .nav-item {
+  text-transform: uppercase;
   height: 100%;
   margin: 0px 10px;
   text-align: center;
@@ -90,6 +92,12 @@ body #nav-bar .nav-item:hover .border,
 body #nav-bar .nav-item.active .border {
   width: 100%;
 }
+body #nav-bar .divider {
+  margin-top: -6px;
+}
+body #nav-bar .divider::after {
+  content: "//";
+}
 body #content {
   margin: 0 auto;
   max-width: 1000px;
@@ -105,11 +113,13 @@ body #content .page {
   padding: 0;
 }
 body #content .page.active {
-  padding: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   height: auto;
   opacity: 1;
 }
 body #content .page .item {
+  cursor: pointer;
   height: 0;
   padding: 0;
   opacity: 0;
@@ -118,13 +128,29 @@ body #content .page .item {
 }
 body #content .page .item.active {
   transition: height 0.3s ease-in, opacity 0.3s ease-in, margin-top 0.3s ease-in;
-  margin-top: 0;
-  padding: 10px;
   opacity: 1;
+  margin-top: 0;
+}
+body #content .page .item.active .overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgba(0,0,0,0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+body #content .page .item.active .overlay:hover {
+  opacity: 1;
+}
+body #content .page .item.active img {
+  width: 100%;
 }
 @media only screen and (max-width: 400px) {
   body {
-    font-size: 4.5vw;
+    font-size: 4vw;
   }
   body #banner #banner-centre #banner-title {
     font-size: 22vw;
@@ -133,9 +159,6 @@ body #content .page .item.active {
     font-size: 6vw;
   }
   body #content .page.active {
-    padding: 0px 30px;
-  }
-  body #content .page .item.active {
-    padding: 10px 0;
+    padding: 0px 10px;
   }
 }
