@@ -63,7 +63,7 @@ body #nav-bar.banner-mode .background {
 body #nav-bar .background {
   bottom: 0;
   left: 0;
-  transition: height 0.3s ease;
+  transition: height 0.1s ease;
   position: absolute;
   width: 100%;
   height: 50px;
@@ -132,6 +132,9 @@ body #content .page .item.active {
   margin-top: 0;
 }
 body #content .page .item.active .overlay {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  ms-user-select: none;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -142,24 +145,70 @@ body #content .page .item.active .overlay {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-body #content .page .item.active .overlay:hover {
+body #content .page .item.active .overlay:hover,
+body #content .page .item.active .overlay:active {
   opacity: 1;
 }
 body #content .page .item.active .overlay .overlay-inner {
   transform-style: preserve-3d;
+  padding: 50px;
 }
 body #content .page .item.active .overlay .overlay-inner .top-line,
 body #content .page .item.active .overlay .overlay-inner .bottom-line {
   transform: translateZ(20px);
+  height: 2px;
+  background-color: #fff;
+  margin: 10px 0px;
 }
 body #content .page .item.active .overlay .overlay-inner .tools {
-  transform: translateZ(50px);
+  transform: translateZ(30px);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 4.5vw;
 }
 body #content .page .item.active .overlay .overlay-inner .title {
-  transform: translateZ(60px);
+  transform: translateZ(40px);
+  font-family: 'Oswald', sans-serif;
+  font-size: 9vw;
+  text-transform: uppercase;
 }
 body #content .page .item.active .overlay .overlay-inner .description {
-  transform: translateZ(50px);
+  transform: translateZ(20px);
+  font-size: 4vw;
+}
+body #content .page .item.active .overlay .overlay-inner .top-line {
+  width: 100%;
+}
+body #content .page .item.active .overlay .overlay-inner .bottom-line {
+  width: 100%;
+}
+body #content .page .item.active .overlay .overlay-inner .tl,
+body #content .page .item.active .overlay .overlay-inner .tr,
+body #content .page .item.active .overlay .overlay-inner .br,
+body #content .page .item.active .overlay .overlay-inner .bl {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+body #content .page .item.active .overlay .overlay-inner .tl,
+body #content .page .item.active .overlay .overlay-inner .tr {
+  border-top: 1px solid #fff;
+  top: 0;
+}
+body #content .page .item.active .overlay .overlay-inner .bl,
+body #content .page .item.active .overlay .overlay-inner .br {
+  border-bottom: 1px solid #fff;
+  bottom: 0;
+}
+body #content .page .item.active .overlay .overlay-inner .tl,
+body #content .page .item.active .overlay .overlay-inner .bl {
+  border-left: 1px solid #fff;
+  left: 0;
+}
+body #content .page .item.active .overlay .overlay-inner .tr,
+body #content .page .item.active .overlay .overlay-inner .br {
+  border-right: 1px solid #fff;
+  right: 0;
 }
 body #content .page .item.active img {
   width: 100%;
@@ -176,5 +225,8 @@ body #content .page .item.active img {
   }
   body #content .page.active {
     padding: 0px 10px;
+  }
+  body #content .page .item.active .overlay .overlay-inner {
+    padding: 10px;
   }
 }

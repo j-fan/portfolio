@@ -42,7 +42,7 @@ var navBar = {
   addNavBarScrollAnim : function(){
     window.addEventListener("scroll", function(){
       var navBar = document.querySelector("#nav-bar")
-      var navBarHeight = 120
+      var navBarHeight = 50
       var pos = navBar.getBoundingClientRect().top
       var banner = document.querySelector("#banner")
       if(pos <= navBarHeight){
@@ -125,8 +125,8 @@ var overlay = {
       overlay.addEventListener("mousemove",function(e){
         console.log("3d hover")
         var overlay = e.currentTarget
-        var xAmount = (window.innerWidth/2 - e.clientX) /-10
-        var yAmount = (window.innerHeight/2 - e.clientY) /10
+        var xAmount = (window.innerWidth/2 - e.clientX) /-20
+        var yAmount = (window.innerHeight/2 - e.clientY) /20
         var inner = overlay.querySelector(".overlay-inner")
         inner.style.transform = "rotateY(" + xAmount + "deg)" +
                                   " rotateX(" + yAmount + "deg)"

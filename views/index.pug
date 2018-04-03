@@ -1,11 +1,16 @@
-mixin overlay(tools,title,description)
+mixin overlay(tools,title,description,date)
 	.overlay
 		.overlay-inner
-			.top-line
+			.tl
+			.tr
+			.bl
+			.br
 			.tools= tools
+			.top-line
 			.title= title 
 			.description= description
-			.bottom-line 
+			.bottom-line
+			.date= date
 	
 doctype html
 html
@@ -38,7 +43,7 @@ html
 		#content.banner-mode
 			.page.creative-code
 				.item
-					+overlay("processing / photoshop","Flow Fields","a code sketch")
+					+overlay("processing / photoshop","Flow Fields","a code sketch","")
 					img(src="img/poste4.jpg")
 				.item
 					+overlay("processing / photoshop","White Apartments","illustration exploration")
