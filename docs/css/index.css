@@ -41,7 +41,6 @@ body #banner #banner-bg {
   height: calc(100vh - 0px);
   z-index: -1;
   background-image: url("../img/banner-temp.jpg");
-  filter: brightness(40%);
   background-size: cover;
   background-repeat: no-repeat;
 }
