@@ -128,6 +128,16 @@ body
 						transition: opacity 0.3s ease
 						&:hover
 							opacity: 1
+						.overlay-inner
+							transform-style: preserve-3d
+							.top-line,.bottom-line
+								transform : translateZ(20px)
+							.tools
+								transform : translateZ(50px)
+							.title 
+								transform : translateZ(60px) 
+							.description
+								transform : translateZ(50px)
 					img
 						width: 100%
 

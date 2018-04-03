@@ -1,6 +1,7 @@
 function initSite(){
   navBar.init()
   content.init()
+  overlay.init()
 }
 
 var navBar = {
@@ -115,6 +116,25 @@ var content = {
     var parentWidth = elem.parentElement.clientWidth
     elem.style.width = parentWidth + "px"
   }
+}
+
+var overlay = {
+  init : function(){
+    var overlays = document.querySelectorAll(".overlay")
+    overlays.forEach(function(overlay){
+      overlay.addEventListener("mousemove",function(e){
+        console.log("3d hover")
+        var overlay = e.currentTarget
+        var xAmount = (window.innerWidth/2 - e.clientX) /10
+        var yAmount = (window.innerHeight/2 - e.clientY) /10
+        var inner = overlay.querySelector(".overlay-inner")
+        inner.style.transform = "rotateY(" + xAmount + "deg)" +
+                                  " rotateX(" + yAmount + "deg)"
+      })
+    })
+    // window.addEventListener("mousemove",overlay.hover3d)
+  }
+
 }
 
 document.addEventListener("DOMContentLoaded",initSite())

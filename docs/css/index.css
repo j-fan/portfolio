@@ -145,6 +145,22 @@ body #content .page .item.active .overlay {
 body #content .page .item.active .overlay:hover {
   opacity: 1;
 }
+body #content .page .item.active .overlay .overlay-inner {
+  transform-style: preserve-3d;
+}
+body #content .page .item.active .overlay .overlay-inner .top-line,
+body #content .page .item.active .overlay .overlay-inner .bottom-line {
+  transform: translateZ(20px);
+}
+body #content .page .item.active .overlay .overlay-inner .tools {
+  transform: translateZ(50px);
+}
+body #content .page .item.active .overlay .overlay-inner .title {
+  transform: translateZ(60px);
+}
+body #content .page .item.active .overlay .overlay-inner .description {
+  transform: translateZ(50px);
+}
 body #content .page .item.active img {
   width: 100%;
 }
