@@ -5,11 +5,12 @@ body {
   box-sizing: border-box;
 }
 body #banner {
+  color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   ms-user-select: none;
   width: 100%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,25 +19,45 @@ body #banner {
 body #banner.banner-mode #banner-bg {
   height: 100vh;
 }
+body #banner.active #banner-title,
+body #banner.active #banner-subtitle,
+body #banner.active #banner-subtitle2 {
+  transform: translateY(0px);
+  opacity: 1;
+}
+body #banner #banner-title,
+body #banner #banner-subtitle,
+body #banner #banner-subtitle2 {
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  transform: translateY(-10px);
+  opacity: 0;
+}
 body #banner #banner-bg {
   position: absolute;
   top: 0;
   left: 0;
-  background: #ddd;
+  background: #333;
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 0px);
   z-index: -1;
+  background-image: url("../img/banner-temp.jpg");
+  filter: brightness(40%);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 body #banner #banner-title {
+  transition-delay: 0s;
   font-family: 'Oswald', sans-serif;
   font-size: 80px;
   text-transform: uppercase;
   font-weight: 700;
 }
 body #banner #banner-subtitle {
+  transition-delay: 0.1s;
   font-size: 24px;
 }
 body #banner #banner-subtitle2 {
+  transition-delay: 0.2s;
   margin-top: 10px;
 }
 body #nav-bar {
@@ -44,7 +65,7 @@ body #nav-bar {
   -moz-user-select: none;
   ms-user-select: none;
   display: flex;
-  min-height: 50px;
+  min-height: 60px;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -53,26 +74,41 @@ body #nav-bar {
   top: 0;
   left: 0;
   z-index: 99;
+  color: #000;
+  opacity: 0;
+  transform: translateY(-10px);
 }
 body #nav-bar.banner-mode {
-  min-height: 120px;
+  color: #fff;
+  min-height: 60px;
+  transition: color 0.2s ease;
 }
 body #nav-bar.banner-mode .background {
   height: 0px;
 }
+body #nav-bar.banner-mode .nav-item .border {
+  background-color: #fff;
+}
+body #nav-bar.active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  transition-delay: 0.3s;
+}
 body #nav-bar .background {
   bottom: 0;
   left: 0;
-  transition: height 0.1s ease;
+  transition: height 0.2s ease;
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: #fff;
   box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
   z-index: -1;
 }
 body #nav-bar .nav-item {
   text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
   height: 100%;
   margin: 0px 10px;
   text-align: center;
@@ -83,6 +119,7 @@ body #nav-bar .nav-item .border {
   background: #000;
   width: 0;
   transition: width 0.3s ease;
+  background-color: #000;
 }
 body #nav-bar .nav-item:hover,
 body #nav-bar .nav-item.active {
@@ -100,8 +137,8 @@ body #nav-bar .divider::after {
 }
 body #content {
   margin: 0 auto;
-  max-width: 1000px;
-  min-height: calc(100vh - 50px);
+  max-width: 800px;
+  min-height: calc(100vh - 60px);
 }
 body #content.banner-mode {
   display: none;
@@ -141,7 +178,7 @@ body #content .page .item.active .overlay {
   align-items: center;
   justify-content: center;
   color: #fff;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.7);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -149,32 +186,57 @@ body #content .page .item.active .overlay:hover,
 body #content .page .item.active .overlay:active {
   opacity: 1;
 }
+body #content .page .item.active .overlay:hover .overlay-inner .tools,
+body #content .page .item.active .overlay:active .overlay-inner .tools,
+body #content .page .item.active .overlay:hover .overlay-inner .title,
+body #content .page .item.active .overlay:active .overlay-inner .title,
+body #content .page .item.active .overlay:hover .overlay-inner .description,
+body #content .page .item.active .overlay:active .overlay-inner .description {
+  margin-top: 0px;
+  opacity: 1;
+}
+body #content .page .item.active .overlay:hover .overlay-inner .bottom-line,
+body #content .page .item.active .overlay:active .overlay-inner .bottom-line,
+body #content .page .item.active .overlay:hover .overlay-inner .top-line,
+body #content .page .item.active .overlay:active .overlay-inner .top-line {
+  margin: 10px 0px;
+}
 body #content .page .item.active .overlay .overlay-inner {
   transform-style: preserve-3d;
   padding: 50px;
 }
+body #content .page .item.active .overlay .overlay-inner .tools,
+body #content .page .item.active .overlay .overlay-inner .title,
+body #content .page .item.active .overlay .overlay-inner .description {
+  margin-top: 20px;
+  transition: margin-top 0.2s ease-in, opacity 0.2s ease-in;
+  opacity: 0;
+}
 body #content .page .item.active .overlay .overlay-inner .top-line,
 body #content .page .item.active .overlay .overlay-inner .bottom-line {
+  margin: 20px 0px;
   transform: translateZ(20px);
   height: 2px;
   background-color: #fff;
-  margin: 10px 0px;
 }
 body #content .page .item.active .overlay .overlay-inner .tools {
   transform: translateZ(30px);
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 4.5vw;
+  font-size: 16px;
 }
 body #content .page .item.active .overlay .overlay-inner .title {
   transform: translateZ(40px);
   font-family: 'Oswald', sans-serif;
-  font-size: 9vw;
+  font-size: 40px;
   text-transform: uppercase;
 }
 body #content .page .item.active .overlay .overlay-inner .description {
+  transform: translateZ(30px);
+  font-size: 14px;
+}
+body #content .page .item.active .overlay .overlay-inner .date {
   transform: translateZ(20px);
-  font-size: 4vw;
 }
 body #content .page .item.active .overlay .overlay-inner .top-line {
   width: 100%;
@@ -192,22 +254,22 @@ body #content .page .item.active .overlay .overlay-inner .bl {
 }
 body #content .page .item.active .overlay .overlay-inner .tl,
 body #content .page .item.active .overlay .overlay-inner .tr {
-  border-top: 1px solid #fff;
+  border-top: 2px solid #fff;
   top: 0;
 }
 body #content .page .item.active .overlay .overlay-inner .bl,
 body #content .page .item.active .overlay .overlay-inner .br {
-  border-bottom: 1px solid #fff;
+  border-bottom: 2px solid #fff;
   bottom: 0;
 }
 body #content .page .item.active .overlay .overlay-inner .tl,
 body #content .page .item.active .overlay .overlay-inner .bl {
-  border-left: 1px solid #fff;
+  border-left: 2px solid #fff;
   left: 0;
 }
 body #content .page .item.active .overlay .overlay-inner .tr,
 body #content .page .item.active .overlay .overlay-inner .br {
-  border-right: 1px solid #fff;
+  border-right: 2px solid #fff;
   right: 0;
 }
 body #content .page .item.active img {
@@ -223,10 +285,25 @@ body #content .page .item.active img {
   body #banner #banner-centre #banner-subtitle {
     font-size: 6vw;
   }
+  body #nav-bar {
+    font-size: 3.5vw;
+  }
+  body #nav-bar .nav-item {
+    margin: 0 4px;
+  }
   body #content .page.active {
     padding: 0px 10px;
   }
   body #content .page .item.active .overlay .overlay-inner {
-    padding: 10px;
+    padding: 20px;
+  }
+  body #content .page .item.active .overlay .overlay-inner .tools {
+    font-size: 4.5vw;
+  }
+  body #content .page .item.active .overlay .overlay-inner .title {
+    font-size: 9vw;
+  }
+  body #content .page .item.active .overlay .overlay-inner .description {
+    font-size: 4vw;
   }
 }

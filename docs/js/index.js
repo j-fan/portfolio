@@ -1,13 +1,23 @@
 function initSite(){
+  firstLoadAnims.init()
   navBar.init()
   content.init()
   overlay.init()
+  scrollAnims.init()
+}
+
+var firstLoadAnims = {
+  init : function(){
+    var banner = document.querySelector("#banner")
+    banner.classList.add("active")
+    var nav = document.querySelector("#nav-bar")
+    nav.classList.add("active")
+  }
 }
 
 var navBar = {
   init : function(){
     navBar.initButtons()
-    navBar.addNavBarScrollAnim()
   },
   buttons : document.querySelectorAll(".nav-item"),
   initButtons : function(){
@@ -32,29 +42,55 @@ var navBar = {
     var navBar = document.querySelector("#nav-bar")
     var navBarHeight = navBar.clientHeight
 
-    var contentTop = content.offsetTop - navBarHeight
+    var contentTop = content.offsetTop - navBarHeight + 1
     window.scrollTo({
      top: contentTop,
      left: 0,
      behavior: 'smooth'
     });
   },
-  addNavBarScrollAnim : function(){
+
+
+}
+
+var scrollAnims = {
+  init : function(){
     window.addEventListener("scroll", function(){
+      //nav bar animation
       var navBar = document.querySelector("#nav-bar")
-      var navBarHeight = 50
+      var navBarHeight = navBar.offsetHeight
       var pos = navBar.getBoundingClientRect().top
       var banner = document.querySelector("#banner")
-      if(pos <= navBarHeight){
+      if(pos <= navBarHeight && navBar.classList.contains("banner-mode")){
+        console.log("remove")
         navBar.classList.remove("banner-mode")
         banner.classList.remove("banner-mode")
-      } else {
+      }
+      if(pos > navBarHeight && !navBar.classList.contains("banner-mode")){
+        console.log("add")
         navBar.classList.add("banner-mode")
         banner.classList.add("banner-mode")
       }
-    })
-  }
+      //items (posts) animations
+      var items = document.querySelectorAll(".page.active .item")
+      for(var i =0;i<items.length;i++){
+        if(content.checkVisible(items[i])){
+          content.showElem(items[i])
+        }
+      }
+      //banner text animation 
+      //TO DO: remove this for mobile
+      // var banner = document.querySelector("#banner")
+      // var shiftAmount = banner.getBoundingClientRect().top
+      // for(var i = 0; i< banner.children.length ; i ++){
+      //   var child = banner.children[i]
+      //   child.style.transition = "none"
+      //   child.style.transform = "translateY(" + shiftAmount/i + "px)"
+      // }
 
+    })
+
+  }
 }
 
 var content = {
@@ -95,8 +131,15 @@ var content = {
     for(var i = 0; i<items.length; i++){
       var item = items[i]
       item.classList.remove('active')
-      setTimeout(content.showElem, duration * i + delay, item)
+      if(i < 2){
+        setTimeout(content.showElem, duration * i + delay, item)
+      }
     }
+  },
+  checkVisible : function (elm) {
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
   },
   showElem : function(elem){
     content.setElemHeight(elem)
@@ -123,16 +166,14 @@ var overlay = {
     var overlays = document.querySelectorAll(".overlay")
     overlays.forEach(function(overlay){
       overlay.addEventListener("mousemove",function(e){
-        console.log("3d hover")
         var overlay = e.currentTarget
-        var xAmount = (window.innerWidth/2 - e.clientX) /-20
-        var yAmount = (window.innerHeight/2 - e.clientY) /20
+        var xAmount = (window.innerWidth/2 - e.clientX) /-15
+        var yAmount = (window.innerHeight/2 - e.clientY) /15
         var inner = overlay.querySelector(".overlay-inner")
         inner.style.transform = "rotateY(" + xAmount + "deg)" +
                                   " rotateX(" + yAmount + "deg)"
       })
     })
-    // window.addEventListener("mousemove",overlay.hover3d)
   }
 
 }
