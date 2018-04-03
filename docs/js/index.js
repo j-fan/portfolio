@@ -125,7 +125,7 @@ var overlay = {
       overlay.addEventListener("mousemove",function(e){
         console.log("3d hover")
         var overlay = e.currentTarget
-        var xAmount = (window.innerWidth/2 - e.clientX) /10
+        var xAmount = (window.innerWidth/2 - e.clientX) /-10
         var yAmount = (window.innerHeight/2 - e.clientY) /10
         var inner = overlay.querySelector(".overlay-inner")
         inner.style.transform = "rotateY(" + xAmount + "deg)" +
