@@ -72,21 +72,20 @@ var scrollAnims = {
         banner.classList.add("banner-mode")
       }
       //items (posts) animations
-      var items = document.querySelectorAll(".page.active .item")
-      for(var i =0;i<items.length;i++){
-        if(content.checkVisible(items[i])){
-          content.showElem(items[i])
-        }
-      }
-      //banner text animation 
-      //TO DO: remove this for mobile
-      // var banner = document.querySelector("#banner")
-      // var shiftAmount = banner.getBoundingClientRect().top
-      // for(var i = 0; i< banner.children.length ; i ++){
-      //   var child = banner.children[i]
-      //   child.style.transition = "none"
-      //   child.style.transform = "translateY(" + shiftAmount/i + "px)"
+      // var items = document.querySelectorAll(".page.active .item")
+      // for(var i =0;i<items.length;i++){
+      //   if(content.checkVisible(items[i])){
+      //     content.showElem(items[i])
+      //   }
       // }
+      //banner text animation 
+      var banner = document.querySelector("#banner")
+      var shiftAmount = banner.getBoundingClientRect().top
+      for(var i = 0; i< banner.children.length ; i ++){
+        var child = banner.children[i]
+        child.style.transition = "none"
+        child.style.transform = "translateY(" + shiftAmount/i + "px)"
+      }
 
     })
 
@@ -126,12 +125,15 @@ var content = {
     var page = content.pages[pageNum]
     content.cascadeShowChildren(page,200,200)
   },
-  cascadeShowChildren : function(page,duration,delay){
+  cascadeShowChildren : function(page,duration,delay,limit){
     var items = page.children
+    if(!limit || limit < 0 || limit >= items.length){
+      limit = items.length 
+    } 
     for(var i = 0; i<items.length; i++){
       var item = items[i]
       item.classList.remove('active')
-      if(i < 2){
+      if(i < limit){
         setTimeout(content.showElem, duration * i + delay, item)
       }
     }
