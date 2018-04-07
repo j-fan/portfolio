@@ -57,10 +57,12 @@ var scrollAnims = {
   init : function(){
     window.addEventListener("scroll", function(){
       //nav bar animation
+      //also hide visible active pages
       var navBar = document.querySelector("#nav-bar")
       var navBarHeight = navBar.offsetHeight
       var pos = navBar.getBoundingClientRect().top
       var banner = document.querySelector("#banner")
+
       if(pos <= navBarHeight && navBar.classList.contains("banner-mode")){
         console.log("remove")
         navBar.classList.remove("banner-mode")
@@ -107,6 +109,27 @@ var content = {
             content.setToParentSize(item.querySelector(".overlay"))
           }
         }
+      }
+    })
+    //trigger project pages when item clicked
+    var items = document.querySelectorAll(".item")
+    items.forEach(function(item){
+      var overlay = item.querySelector(".overlay")
+      var projectClose = item.querySelector(".project-page .close")
+      if(overlay){
+        overlay.addEventListener("click",function(e){
+          var projectPage = e.currentTarget.parentElement.querySelector(".project-page")
+          projectPage.classList.add("active")
+          document.body.classList.add("no-scroll")
+        })
+      }
+      if(projectClose){
+        projectClose.addEventListener("click",function(e){
+          var projectPage = e.currentTarget.parentElement
+          projectPage.classList.remove("active")
+          document.body.classList.remove("no-scroll")
+          
+        })
       }
     })
   },
@@ -169,8 +192,8 @@ var overlay = {
     overlays.forEach(function(overlay){
       overlay.addEventListener("mousemove",function(e){
         var overlay = e.currentTarget
-        var xAmount = (window.innerWidth/2 - e.clientX) /-15
-        var yAmount = (window.innerHeight/2 - e.clientY) /15
+        var xAmount = (window.innerWidth/2 - e.clientX) /-20
+        var yAmount = (window.innerHeight/2 - e.clientY) /20
         var inner = overlay.querySelector(".overlay-inner")
         inner.style.transform = "rotateY(" + xAmount + "deg)" +
                                   " rotateX(" + yAmount + "deg)"

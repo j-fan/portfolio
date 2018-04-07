@@ -1,16 +1,24 @@
 $nav-bar-height = 80px
 $nav-bar-height-thin = 80px
-$content-width = 800px
-$landing-text-color = #FFF
+$content-width = 1000px
+$banner-mode-text-color = #FFF
+$main-mode-text-color = #000
 $banner-anim-duration = 0.1s
+$main-page-color = #FFF
+
+	
 body
 	margin: 0
 	font-family: 'Lato', sans-serif
 	font-size: 16px
 	box-sizing: border-box
+	background-color: $main-page-color
+	&.no-scroll
+		overflow: hidden
+
 
 	#banner
-		color: $landing-text-color
+		color: $banner-mode-text-color
 		-webkit-user-select: none
 		-moz-user-select: none
 		ms-user-select: none
@@ -40,7 +48,6 @@ body
 			height:"calc(100vh - %s)" % ($nav-bar-height - $nav-bar-height-thin)
 			z-index: -1
 			background-image url("../img/banner-temp.jpg")
-			//filter: brightness(40%) //lol dont use this for large img on mobile
 			background-size: cover
 			background-repeat: no-repeat
 			
@@ -72,18 +79,18 @@ body
 		top: 0
 		left: 0
 		z-index: 99
-		color: black
+		color: $main-mode-text-color
 		opacity: 0
 		transform: translateY(-10px)
 		&.banner-mode
-			color: $landing-text-color
+			color: $banner-mode-text-color
 			min-height: $nav-bar-height
 			transition: color 0.2s ease
 			.background
 				height: 0px
 			.nav-item
 				.border
-					background-color: $landing-text-color
+					background-color: $banner-mode-text-color
 		&.active
 			opacity: 1
 			transform: translateY(0px)
@@ -96,7 +103,7 @@ body
 			position:absolute
 			width: 100%
 			height: $nav-bar-height-thin
-			background: white
+			background: $main-page-color
 			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1)
 			z-index: -1
 		.nav-item
@@ -108,10 +115,9 @@ body
 			.border
 				margin-top: 4px
 				height: 3px
-				background: black
 				width: 0
 				transition: width 0.3s ease
-				background-color: black
+				background-color: $main-mode-text-color 
 			&:hover, &.active
 				cursor: pointer
 				.border
@@ -124,6 +130,12 @@ body
 		margin: 0 auto
 		max-width: $content-width
 		min-height: "calc(100vh - %s)" % $nav-bar-height-thin
+		.line 
+			height: 3px
+			background-color: black 
+			width: 100%
+			margin: 20px 0
+
 		&.banner-mode
 			display: none
 		.page
@@ -136,6 +148,9 @@ body
 				padding-bottom: 30px
 				height: auto
 				opacity: 1
+			&.model-mode
+				height: 0
+
 			.item
 				cursor:pointer
 				height: 0
@@ -149,77 +164,138 @@ body
 											margin-top 0.3s ease-in
 					opacity: 1
 					margin-top: 0
-					.overlay
-						-webkit-user-select: none
-						-moz-user-select: none
-						ms-user-select: none
-						position: absolute
-						display: flex
-						flex-direction: column
-						align-items: center
-						justify-content: center
-						color:white
-						background-color: rgba(0,0,0,0.7)
-						opacity: 0
-						transition: opacity 0.3s ease
-						&:hover, &:active
-							opacity: 1
-							.overlay-inner
-								.tools,.title,.description
-									margin-top: 0px
-									opacity: 1
-								.bottom-line, .top-line
-									margin: 10px 0px
-									
+				.project-page
+					position: fixed
+					top: 0
+					left: 0
+					background-color: $main-page-color
+					opacity: 0
+					height: 100%
+					width:100%
+					z-index: 100
+					transition: opacity 0.3s ease, transform 0.3s ease
+					pointer-events: none
+					transform:scale(0.5)
+					&.active
+						transform: scale(1)
+						opacity: 1
+						pointer-events: auto
+					.tl, .tr, .br, .bl
+						position: fixed
+						border-color: $main-mode-text-color
+						width: 40px
+						height: 40px
+						margin: 20px
+						border-width: 3px
+					.close
+						position: fixed
+						&:after
+							content: "close"
+					.inner
+						overflow:hidden
+						position: relative
+						margin: 40px
+						height: calc(100% - 80px)
+						pointer: auto
+						/* y no crossbrowser scrollbar styling*/
+						.inner-inner
+							overflow-y: auto
+							padding-right: 20px
+							width: 100%
+							height:100%
+							.project-content
+								max-width: $content-width
+								margin: 0 auto
+								.header
+									display: flex
+									align-items: stretch
+									min-height: 300px
+									margin-top: 50px
+									.left
+										width:70%
+										margin-right: 20px
+										.title
+											font-size: 60px
+											line-height: 60px
+											font-family: 'Oswald', sans-serif
+										.tool
+											margin: 10px 0px
+											font-size: 20px
+										
+									.description
+										width: 100%
+
+
+				.overlay
+					-webkit-user-select: none
+					-moz-user-select: none
+					ms-user-select: none
+					position: absolute
+					display: flex
+					flex-direction: column
+					align-items: center
+					justify-content: center
+					color:white
+					background-color: rgba(0,0,0,0.7)
+					opacity: 0
+					transition: opacity 0.3s ease
+					&:hover, &:active
+						opacity: 1
 						.overlay-inner
-							transform-style: preserve-3d
-							padding: 50px
 							.tools,.title,.description
-								margin-top: 20px
-								transition: margin-top 0.2s ease-in, opacity 0.2s ease-in
-								opacity: 0
-							.top-line,.bottom-line
-								margin: 20px 0px
-								transform : translateZ(20px)
-								height: 2px
-								background-color: white
-							.tools
-								transform : translateZ(30px)
-								text-transform: uppercase
-								font-weight: 600
-								font-size: 16px
-							.title
-								transform : translateZ(40px)
-								font-family: 'Oswald', sans-serif
-								font-size: 40px
-								text-transform: uppercase
-							.description
-								transform : translateZ(30px)
-								font-size: 14px
-							.date
-								transform : translateZ(20px)
-							.top-line
-								width: 100%
-							.bottom-line
-								width: 100%
-							.tl, .tr, .br, .bl
-								position: absolute
-								width: 10px
-								height: 10px
-							.tl, .tr
-								border-top: 2px solid white
-								top: 0
-							.bl, .br
-								border-bottom: 2px solid white
-								bottom: 0
-							.tl, .bl
-								border-left: 2px solid white
-								left: 0
-							.tr, .br
-								border-right: 2px solid white
-								right: 0
-					img
-						width: 100%
+								margin-top: 0px
+								opacity: 1
+							.bottom-line, .top-line
+								margin: 10px 0px			
+					.overlay-inner
+						transform-style: preserve-3d
+						padding: 50px
+						.tools,.title,.description
+							margin-top: 20px
+							transition: margin-top 0.2s ease-in, opacity 0.2s ease-in
+							opacity: 0
+						.top-line,.bottom-line
+							margin: 20px 0px
+							transform : translateZ(20px)
+							height: 2px
+							background-color: white
+						.tools
+							transform : translateZ(30px)
+							text-transform: uppercase
+							font-weight: 600
+							font-size: 16px
+						.title
+							transform : translateZ(40px)
+							font-family: 'Oswald', sans-serif
+							font-size: 40px
+							text-transform: uppercase
+						.description
+							transform : translateZ(30px)
+							font-size: 14px
+						.date
+							transform : translateZ(20px)
+						.top-line
+							width: 100%
+						.bottom-line
+							width: 100%
+				.tl, .tr, .br, .bl
+					position: absolute
+					width: 10px
+					height: 10px
+				.tl, .tr
+					border-top: 2px solid white
+					top: 0
+				.bl, .br
+					border-bottom: 2px solid white
+					bottom: 0
+				.tl, .bl
+					border-left: 2px solid white
+					left: 0
+				.tr, .br
+					border-right: 2px solid white
+					right: 0
+				img
+					width: 100%
 
 
 @media only screen and (max-width: 400px)
@@ -240,13 +316,21 @@ body
 				&.active
 					padding: 0px 10px
 				.item
-					&.active
-						.overlay
-							.overlay-inner
-								padding: 10px 
-								.tools
-									font-size:4vw
-								.title
-									font-size:8vw
-								.description
-									font-size:3.5vw
+					.overlay
+						.overlay-inner
+							padding: 10px 
+							.tools
+								font-size:4vw
+							.title
+								font-size:8vw
+							.description
+								font-size:3.5vw
+					.project-page
+						&.active
+							.tl, .tr, .br, .bl
+								height: 20px
+								width: 20px
+								margin: 10px
+							.inner
+								margin: 20px
+								height: calc(100% - 40px)

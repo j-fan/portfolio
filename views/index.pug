@@ -11,6 +11,27 @@ mixin overlay(tools,title,description,date)
 			.description= description
 			.bottom-line
 			.date= date
+
+mixin projectPageThings(title,description,imgs,tools)
+	.project-page
+		.tl
+		.tr
+		.bl
+		.br
+		.close
+		.inner
+			.inner-inner
+				.project-content
+					.header
+						.left
+							.title= title
+							.line
+							for t in tools
+								.tool= t
+						.description= description
+					.main
+						for i in imgs
+							img(src=i)
 	
 doctype html
 html
@@ -45,21 +66,28 @@ html
 				.item
 					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
 					img(src="img/poste4.jpg")
+					+projectPageThings("Flow Field","description...",["img/poste4.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
+
 				.item
 					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
 					img(src="img/white_apartments.jpg")
+
 				.item
 					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
 					img(src="img/poste4.jpg")
+
 				.item
 					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
 					img(src="img/white_apartments.jpg")
+
 				.item
 					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
 					img(src="img/poste4.jpg")
+
 				.item
 					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
 					img(src="img/white_apartments.jpg")
+
 			.page.3d-art
 				.item
 					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
