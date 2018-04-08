@@ -48,7 +48,7 @@ body #banner #banner-bg {
   position: absolute;
   top: 0;
   left: 0;
-  background: #333;
+  background: #050505;
   width: 100%;
   height: calc(100vh - 0px);
   z-index: -1;
