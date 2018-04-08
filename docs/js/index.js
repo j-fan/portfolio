@@ -216,4 +216,5 @@ var overlay = {
 
 }
 
-document.addEventListener("DOMContentLoaded",initSite())
+
+document.querySelector("#banner-bg").addEventListener("load",initSite())
