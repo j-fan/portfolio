@@ -8,10 +8,14 @@ function initSite(){
 
 var firstLoadAnims = {
   init : function(){
-    var banner = document.querySelector("#banner")
-    banner.classList.add("active")
-    var nav = document.querySelector("#nav-bar")
-    nav.classList.add("active")
+    setTimeout(function(){
+      var banner = document.querySelector("#banner")
+      banner.classList.add("active")
+      var nav = document.querySelector("#nav-bar")
+      nav.classList.add("active")
+
+    },500)
+
     var bannerBg =  document.querySelector("#banner-bg")
     bannerBg.classList.remove("inactive")
   }
