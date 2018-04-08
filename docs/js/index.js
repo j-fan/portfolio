@@ -81,13 +81,16 @@ var scrollAnims = {
       //   }
       // }
       //banner text animation 
-      var banner = document.querySelector("#banner")
-      var shiftAmount = banner.getBoundingClientRect().top
-      for(var i = 0; i< banner.children.length ; i ++){
-        var child = banner.children[i]
-        child.style.transition = "none"
-        child.style.transform = "translateY(" + shiftAmount/i + "px)"
+      if(window.innerWidth > 400){
+        var banner = document.querySelector("#banner")
+        var shiftAmount = banner.getBoundingClientRect().top
+        for(var i = 0; i< banner.children.length ; i ++){
+          var child = banner.children[i]
+          child.style.transition = "none"
+          child.style.transform = "translateY(" + shiftAmount/i + "px)"
+        }
       }
+
 
     })
 
