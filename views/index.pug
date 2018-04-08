@@ -1,4 +1,4 @@
-mixin project(title,blurb,date,description,imgs,tools)
+mixin project(title,blurb,date,description,imgs,tools,video)
 	.item
 		.overlay
 			.overlay-inner
@@ -33,10 +33,15 @@ mixin project(title,blurb,date,description,imgs,tools)
 								.line
 								for t in tools
 									.tool= t
-							.description= description
+							.description
+								for d in description
+									p= d
 						.main
 							for i in imgs
 								img(src=i)
+							if(video)
+								.video
+									iframe(style=" width:100%; height:100%; position:absolute; top:0; left:0" src= video frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
 		img(src= imgs[0])
 
 
@@ -54,7 +59,7 @@ html
 			#banner-bg
 			#banner-title Jane Fan
 			#banner-subtitle Media Artist and Developer
-			#banner-subtitle2 Website coming soon
+			#banner-subtitle2
 			
 		#nav-bar.banner-mode
 			.background
@@ -71,22 +76,148 @@ html
 				.border
 		#content.banner-mode
 			.page.creative-code
-
-				+project("Flow Field","a code sketch","02.17.","description...",["img/poste4.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
-
-
-				+project("White Apartments","illustration experiment","02.17.","description...",["img/white_apartments.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
-
-
-				+project("Flow Field","a code sketch","02.17.","description...",["img/white_apartments.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
-
+				+project("Energy",
+				         "interactive projection",
+								 "07.16.",
+								 ["Energy is a interactive floor projection created in Processing and MaxMsp.\
+								  The particles in the animation respond to the brightest point as \
+									detected by a webcam. On the night this was a clear umbrella & torch. \
+									Speakers attached to the umbrella also responded to the partipants  \
+									location on the ground. In this artwork I worked on the programming and on concept design"
+									, "Collaborators: Siobhan Morrell(object design/construction), Melissa Grasso(sound and object design), Jessica Dallywater (sound and object design/construction)"],
+								 ["img/particle.jpg","img/particle2.jpg","img/particle3.jpg"],
+								 ["Processing","MaxMSP"],
+								 "https://www.youtube.com/embed/tSJRo-a2fQs")
+				+project("Sound Tree",
+								 "interactive projection",
+								 "05.17.",
+								 ["Sound Tree is an immersive generative artwork that takes \
+								  the form of a fractal tree that grows and shrinks according \
+									to the conversations inside the tent. Sound is \
+									picked up by a directional microphone inside the tent, analysed \
+									and used as drive the Processing graphics."],
+								 ["img/soundtree1.jpg","img/soundtree2.jpg"],
+								 ["Processing"],
+								 "https://www.youtube.com/embed/50oBMal-Muo")
+				 								 
+				+project("Coral",
+								 "interactive projection",
+								 "05.17.",
+								 ["Coral is an interactive artwork that aims to create a sense \
+								  of community, mirroring coral colonies themselves. It is designed \
+									to reward participation and collaboration. \
+								  Blob detection algorithm was applied to the depth image of \
+									the Kinect to track people across the installation space. \
+									Corals grow dynamically according to these movements, creating new reefs \
+									every 2 minutes. Increasingly \
+									layered ambient sounds play as more people are present in \
+									the artwork. This interactive sound is controlled by MaxMSP \
+									which receives tracking data via OSC from the Processing sketch.\
+									The final version includes kaleidoscopic footage from the Great \
+									Barrier Reef. In this project I worked with the kinect, Processing and OSC networking",
+									"Collaborators: Jveicoa Chen (sound programming & concept design), Renrong Guo (video & concept design)"],
+								 ["img/coral0.jpg","img/coral2.jpg","img/coral3.jpg","img/coral4.jpg"],
+								 ["Processing","MaxMSP"],
+								 "https://www.youtube.com/embed/EBsvjNuDecE")
+				+project("Unity Fields",
+								 "creative code",
+								 "03.18.",
+								 ["Electrical and gravitational field animations made using Unity's particle system \
+								 and C# script that generates points of attraction and modifies particle behaviour. \
+								 Work in progress for larger interactive installation which will have people tracking \
+								 to draw a conceptual comparison between intimacy/personal space and physical phenomena. \
+								 . It uses the classic electrical field strength and gravitation field strength formulas. \
+								  In the electrical field version, the velocity was visualised which makes field lines apparent. \
+									The gravitational field visualisation however, uses acceleration so it shows how objects react to gravitational fields."],
+								 ["img/unity2.jpg","img/unity1.jpg","img/unity3.png"],
+								 ["Unity","C#"],
+								 "https://www.youtube.com/embed/Ew4ZQPENMAE")
 			.page.3d-art
-			
-				+project("White Apartments","illustration experiment","02.17.","description...",["img/white_apartments.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
-
-
+				+project("Cyberpunk",
+								 "Environment Modelling",
+								 "06.17.",
+								 ["This is a cyperpunk themed artwork exploring the new physically based rendering workflow for materials"],
+								 ["img/cyber1.jpg","img/cyber2.png","img/cyber3.png"],
+								 ["Blender"],
+								 "")
+				+project("Night Ride",
+								 "Environment Modelling",
+								 "06.17.",
+								 ["Blender render exploring colour and mood, inspired by Tokyo trains."],
+								 ["img/train.jpg","img/train2.png","img/train3.png"],
+								 ["Blender"],
+								 "")
+				+project("Apartments",
+								 "Environment Modelling",
+								 "06.17.",
+								 ["Blender render exploring colour and mood, inspired by Jan Vranovsky's photography."],
+								 ["img/apartments.jpg","img/apartments2.jpg"],
+								 ["Blender","Photoshop"],
+								 "")
+				+project("Railroad uniform",
+								 "Character Modelling",
+								 "07.16.",
+								 ["Original model made for Fallout 4. The challenge was to model/texture/rig a model \
+								  from scratch but also make a appropiate and meaningful design for an existing universe\
+									, in this case for the Railroad faction. The design was inspired by early aviator outfits. "],
+								 ["img/fo1.jpg","img/fo2.jpg","img/fo3.jpg","img/fo4.jpg"],
+								 ["Blender","Mudbox"],
+								 "")
+				+project("Redguard Noble Armor",
+								 "Character Modelling",
+								 "01.16.",
+								 ["I wanted the try the whole process of designing, modelling, texturing \
+								  and rigging character armor, so skyrim became my guinea pig. The hard \
+									part was none of those things, it was a lack of a updated nif plugin \
+									and functional skeleton. I also did some visual research on possible \
+									cultural influences for the Redguards and incorporated those. "],
+								 ["img/skyrim1.jpg","img/skyrim2.jpg","img/skyrim3.jpg"],
+								 ["Blender","Photoshop"],
+								 "")
 			.page.illustration
-	
+				+project("Human",
+								 "Character Illustration",
+								 "03.17.",
+								 ["2d hand drawn illustration over a generative design created in Processing. The background was created by drawing \
+								 particles over a vector field, with each vector direction determined by Perlin noise"],
+								 ["img/ill2.jpg"],
+								 ["Blender","Processing"],
+								 "")
+				+project("Bikes",
+								 "Character Illustration",
+								 "01.16.",
+								 ["2d hand drawn illustration over a 3d render background."],
+								 ["img/ill5.jpg"],
+								 ["Blender","Photoshop"],
+								 "")
+				+project("Encode",
+								 "Character Illustration",
+								 "01.16.",
+								 ["2d hand drawn illustration over a generative glyph design created in Processing."],
+								 ["img/ill4a.jpg","img/ill4.jpg"],
+								 ["Blender","Processing"],
+								 "")
+				+project("Tunnel Vision",
+								 "Character Illustration",
+								 "01.16.",
+								 ["2d hand drawn illustration over a 3d render background."],
+								 ["img/ill3.jpg"],
+								 ["Blender","Photoshop"],
+								 "")
+				+project("Wetwire",
+								 "Character Illustration",
+								 "01.16.",
+								 ["Wetwire is a personal project of mine where I play alternative depictions \
+								  of the Cyberpunk genre. In particular, I am exploring the aesthetics of soft \
+									robotics/body modification, active competition between the natural and artificial \
+									world, and reframing Asian cultures as the subject of Cyberpunk, rather than the background. \
+									It is mainly illustration based, but it is not limited to that format. Some of my creative coding \
+									experiments in Processing have also been worked into the backgrounds. Most images \
+									in the series make use of 2d hand illustration on top of 3d renders so I can play more \
+									with lighting and composition"],
+								 ["img/ill1.jpg"],
+								 ["Blender","Photoshop"],
+								 "")
 			.page.about
 				.item
 					.title Hi I'm Jane Fan
@@ -98,7 +229,7 @@ html
 						I like to apply my programming knowledge in experimental and
 						artistic ways, including but not limited to, generative and
 						interactive art installatons, illustration, 3d art and front-end
-						programming. I'm always looking for new ways to apply my artistic and programming knowlege together.
+						programming (like this website). I'm always looking for new ways to apply my artistic and programming knowlege together.
 					p.
 						I'm due to graduate by the end of 2018 and looking for exciting 
 						developer/designer/artist roles. 
@@ -110,8 +241,12 @@ html
 					h4 Contact Me
 					p.
 						jfan9988 (@) gmail.com
-
-
+				.item
+					h4 Links
+					a(href="https://github.com/j-fan")
+						p Github
+					a(href="https://www.artstation.com/adelruna")
+						p Artstation
 
 
 	

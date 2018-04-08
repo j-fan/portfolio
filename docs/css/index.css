@@ -3,10 +3,18 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   box-sizing: border-box;
-  background-color: #111;
+  background-color: #050505;
+  background-image: url("/img/noise.png");
 }
 body.no-scroll {
   overflow: hidden;
+}
+body a {
+  color: #fff;
+}
+body a:hover {
+  color: #fff;
+  opacity: 0.8;
 }
 body #banner {
   color: #fff;
@@ -105,7 +113,8 @@ body #nav-bar .background {
   position: absolute;
   width: 100%;
   height: 80px;
-  background: #111;
+  background: #050505;
+  background-image: url("/img/noise.png");
   box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
   z-index: -1;
 }
@@ -139,7 +148,7 @@ body #nav-bar .divider::after {
 }
 body #content {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 900px;
   min-height: calc(100vh - 80px);
 }
 body #content .line {
@@ -198,6 +207,7 @@ body #content .page .item {
   margin-top: 10px;
   transition: none;
   color: #fff;
+  margin-bottom: 5px;
 }
 body #content .page .item.active {
   transition: height 0.3s ease-in, opacity 0.3s ease-in, margin-top 0.3s ease-in;
@@ -210,7 +220,8 @@ body #content .page .item .project-page {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #050505;
+  background-image: url("/img/noise.png");
   opacity: 0;
   height: 100%;
   width: 100%;
@@ -282,7 +293,7 @@ body #content .page .item .project-page .inner .inner-inner {
   height: 100%;
 }
 body #content .page .item .project-page .inner .inner-inner .project-content {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 body #content .page .item .project-page .inner .inner-inner .project-content .header {
@@ -297,7 +308,7 @@ body #content .page .item .project-page .inner .inner-inner .project-content .he
 }
 body #content .page .item .project-page .inner .inner-inner .project-content .header .left {
   width: 70%;
-  margin-right: 20px;
+  margin-right: 80px;
 }
 body #content .page .item .project-page .inner .inner-inner .project-content .header .left .title {
   font-size: 60px;
@@ -312,8 +323,18 @@ body #content .page .item .project-page .inner .inner-inner .project-content .he
 body #content .page .item .project-page .inner .inner-inner .project-content .header .description {
   width: 100%;
 }
+body #content .page .item .project-page .inner .inner-inner .project-content .header .description p {
+  margin: 0;
+  margin-top: 5px;
+}
 body #content .page .item .project-page .inner .inner-inner .project-content .main {
   transition-delay: 0.6s;
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .main .video {
+  padding-bottom: 56.25%;
+  height: 0;
+  width: 100%;
+  position: relative;
 }
 body #content .page .item .project-page .inner .inner-inner .project-content .header,
 body #content .page .item .project-page .inner .inner-inner .project-content .main {
@@ -393,7 +414,7 @@ body #content .page .item .overlay .overlay-inner .tools {
   font-size: 16px;
 }
 body #content .page .item .overlay .overlay-inner .title {
-  transform: translateZ(40px);
+  transform: translateZ(50px);
   font-family: 'Oswald', sans-serif;
   font-size: 40px;
   text-transform: uppercase;
@@ -487,9 +508,11 @@ body #content .page .item img {
   }
   body #content .page .item .project-page.active .inner .inner-inner .project-content .header {
     display: block;
+    margin-bottom: 40px;
   }
   body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left {
     width: 100%;
+    margin-right: 0px;
   }
   body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left .title {
     font-size: 10vh;

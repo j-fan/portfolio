@@ -80,7 +80,7 @@ var scrollAnims = {
       //     content.showElem(items[i])
       //   }
       // }
-      //banner text animation 
+      //banner text animation
       if(window.innerWidth > 400){
         var banner = document.querySelector("#banner")
         var shiftAmount = banner.getBoundingClientRect().top
@@ -137,10 +137,10 @@ var content = {
           for(var i=0;i<content.length;i++){
             content[i].classList.remove("active")
           }
-          setTimeout(function(projectPage){
-            projectPage.classList.remove("active")
-            document.body.classList.remove("no-scroll")
-          },800,projectPage)
+
+          projectPage.classList.remove("active")
+          document.body.classList.remove("no-scroll")
+
 
         })
       }
@@ -164,8 +164,8 @@ var content = {
   cascadeShowChildren : function(page,duration,delay,limit){
     var items = page.children
     if(!limit || limit < 0 || limit >= items.length){
-      limit = items.length 
-    } 
+      limit = items.length
+    }
     for(var i = 0; i<items.length; i++){
       var item = items[i]
       item.classList.remove('active')
@@ -205,8 +205,8 @@ var overlay = {
     overlays.forEach(function(overlay){
       overlay.addEventListener("mousemove",function(e){
         var overlay = e.currentTarget
-        var xAmount = (window.innerWidth/2 - e.clientX) /-15
-        var yAmount = (window.innerHeight/2 - e.clientY) /15
+        var xAmount = (window.innerWidth/2 - e.clientX) /-20
+        var yAmount = (window.innerHeight/2 - e.clientY) /20
         var inner = overlay.querySelector(".overlay-inner")
         inner.style.transform = "rotateY(" + xAmount + "deg)" +
                                   " rotateX(" + yAmount + "deg)"

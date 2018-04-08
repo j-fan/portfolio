@@ -1,21 +1,26 @@
 $nav-bar-height = 80px
 $nav-bar-height-thin = 80px
-$content-width = 1000px
+$content-width = 900px
 $banner-mode-text-color = #FFF
 $main-mode-text-color = #FFF
 $banner-anim-duration = 0.1s
-$main-page-color = #111
+$main-page-color = #050505
+$noise = url('/img/noise.png')
 
-	
 body
 	margin: 0
 	font-family: 'Lato', sans-serif
 	font-size: 16px
 	box-sizing: border-box
 	background-color: $main-page-color
+	background-image: $noise
 	&.no-scroll
 		overflow: hidden
-
+	a
+		color: white
+		&:hover
+			color: white
+			opacity: 0.8
 
 	#banner
 		color: $banner-mode-text-color
@@ -50,7 +55,7 @@ body
 			background-image url("../img/banner-temp.jpg")
 			background-size: cover
 			background-repeat: no-repeat
-			
+
 		#banner-title
 			transition-delay: 0s
 			font-family: 'Oswald', sans-serif
@@ -104,6 +109,7 @@ body
 			width: 100%
 			height: $nav-bar-height-thin
 			background: $main-page-color
+			background-image: $noise
 			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1)
 			z-index: -1
 		.nav-item
@@ -117,7 +123,7 @@ body
 				height: 3px
 				width: 0
 				transition: width 0.3s ease
-				background-color: $main-mode-text-color 
+				background-color: $main-mode-text-color
 			&:hover, &.active
 				cursor: pointer
 				.border
@@ -130,7 +136,7 @@ body
 		margin: 0 auto
 		max-width: $content-width
 		min-height: "calc(100vh - %s)" % $nav-bar-height-thin
-		.line 
+		.line
 			height: 2px
 			background-color: $main-mode-text-color
 			width: 100%
@@ -161,7 +167,7 @@ body
 												opacity 0.3s ease-in,
 												transform 0.3s ease-in
 						transform: translateY(0px)
-				.title 
+				.title
 					text-align: center
 					font-size: 40px
 					margin: 50px 0
@@ -179,6 +185,7 @@ body
 				margin-top: 10px
 				transition: none
 				color: $main-mode-text-color
+				margin-bottom: 5px
 				&.active
 					transition: height 0.3s ease-in,
 											opacity 0.3s ease-in,
@@ -192,6 +199,7 @@ body
 					top: 0
 					left: 0
 					background-color: $main-page-color
+					background-image: $noise
 					opacity: 0
 					height: 100%
 					width:100%
@@ -235,7 +243,7 @@ body
 								opacity: 0.7
 						&:active
 							&:before, &:after
-								opacity: 0.9							
+								opacity: 0.9
 					.inner
 						overflow:hidden
 						position: relative
@@ -260,7 +268,7 @@ body
 										transition: width 0.3s ease-in 0.5s
 									.left
 										width:70%
-										margin-right: 20px
+										margin-right: 80px
 										.title
 											font-size: 60px
 											line-height: 60px
@@ -269,12 +277,20 @@ body
 										.tool
 											margin: 10px 0px
 											font-size: 20px
-										
+
 									.description
 										width: 100%
+										p
+											margin: 0
+											margin-top: 5px
 								.main
 									transition-delay: 0.6s
-								.header,.main 
+									.video
+										padding-bottom: 56.25%
+										height: 0
+										width:100%
+										position: relative
+								.header,.main
 									opacity: 0
 									transform: translateY(20px)
 									transition: opacity 0.3s ease, transform 0.3s ease
@@ -286,9 +302,9 @@ body
 									&.active
 										.line
 											width: 100%
-								.main 
+								.main
 									transition-delay: 0.7s
-								
+
 
 
 				.overlay
@@ -311,7 +327,7 @@ body
 								margin-top: 0px
 								opacity: 1
 							.bottom-line, .top-line
-								margin: 10px 0px			
+								margin: 10px 0px
 					.overlay-inner
 						transform-style: preserve-3d
 						padding: 50px
@@ -330,7 +346,7 @@ body
 							font-weight: 600
 							font-size: 16px
 						.title
-							transform : translateZ(40px)
+							transform : translateZ(50px)
 							font-family: 'Oswald', sans-serif
 							font-size: 40px
 							text-transform: uppercase
@@ -383,7 +399,7 @@ body
 				.item
 					.overlay
 						.overlay-inner
-							padding: 10px 
+							padding: 10px
 							.tools
 								font-size:4vw
 							.title
@@ -403,8 +419,10 @@ body
 									.project-content
 										.header
 											display: block
+											margin-bottom: 40px
 											.left
 												width: 100%
+												margin-right: 0px
 												.title
 													font-size: 10vh
 													line-height: 1
