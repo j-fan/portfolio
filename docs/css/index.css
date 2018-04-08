@@ -55,6 +55,11 @@ body #banner #banner-bg {
   background-image: url("../img/banner-temp.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity 1s ease 1.5s;
+}
+body #banner #banner-bg.inactive {
+  opacity: 0;
 }
 body #banner #banner-title {
   transition-delay: 0s;

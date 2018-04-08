@@ -55,7 +55,10 @@ body
 			background-image url("../img/banner-temp.jpg")
 			background-size: cover
 			background-repeat: no-repeat
-
+			opacity: 1
+			transition: opacity 1s ease 1.5s
+			&.inactive
+				opacity: 0
 		#banner-title
 			transition-delay: 0s
 			font-family: 'Oswald', sans-serif

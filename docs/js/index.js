@@ -12,6 +12,8 @@ var firstLoadAnims = {
     banner.classList.add("active")
     var nav = document.querySelector("#nav-bar")
     nav.classList.add("active")
+    var bannerBg =  document.querySelector("#banner-bg")
+    bannerBg.classList.remove("inactive")
   }
 }
 
@@ -216,5 +218,4 @@ var overlay = {
 
 }
 
-
-document.querySelector("#banner-bg").addEventListener("load",initSite())
+document.addEventListener("DOMContentLoaded",initSite())
