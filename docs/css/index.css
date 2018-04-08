@@ -56,7 +56,7 @@ body #banner #banner-bg {
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 1;
-  transition: opacity 1s ease 1.5s;
+  transition: opacity 1s ease 1s;
 }
 body #banner #banner-bg.inactive {
   opacity: 0;
