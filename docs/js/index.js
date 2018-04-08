@@ -121,14 +121,24 @@ var content = {
           var projectPage = e.currentTarget.parentElement.querySelector(".project-page")
           projectPage.classList.add("active")
           document.body.classList.add("no-scroll")
+          var content = projectPage.querySelector(".project-content").children
+          for(var i=0;i<content.length;i++){
+            content[i].classList.add("active")
+          }
         })
       }
       if(projectClose){
         projectClose.addEventListener("click",function(e){
           var projectPage = e.currentTarget.parentElement
-          projectPage.classList.remove("active")
-          document.body.classList.remove("no-scroll")
-          
+          var content = projectPage.querySelector(".project-content").children
+          for(var i=0;i<content.length;i++){
+            content[i].classList.remove("active")
+          }
+          setTimeout(function(projectPage){
+            projectPage.classList.remove("active")
+            document.body.classList.remove("no-scroll")
+          },800,projectPage)
+
         })
       }
     })
@@ -192,8 +202,8 @@ var overlay = {
     overlays.forEach(function(overlay){
       overlay.addEventListener("mousemove",function(e){
         var overlay = e.currentTarget
-        var xAmount = (window.innerWidth/2 - e.clientX) /-20
-        var yAmount = (window.innerHeight/2 - e.clientY) /20
+        var xAmount = (window.innerWidth/2 - e.clientX) /-15
+        var yAmount = (window.innerHeight/2 - e.clientY) /15
         var inner = overlay.querySelector(".overlay-inner")
         inner.style.transform = "rotateY(" + xAmount + "deg)" +
                                   " rotateX(" + yAmount + "deg)"

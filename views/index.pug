@@ -1,37 +1,45 @@
-mixin overlay(tools,title,description,date)
-	.overlay
-		.overlay-inner
+mixin project(title,blurb,date,description,imgs,tools)
+	.item
+		.overlay
+			.overlay-inner
+				.tl
+				.tr
+				.bl
+				.br
+				
+				- var allTools = ''
+				- for (var i=0; i<tools.length; i++)
+					- allTools = allTools + tools[i]
+					- if(i < tools.length -1)
+						- allTools = allTools + ' // '
+				.tools= allTools
+				.top-line
+				.title= title 
+				.description= blurb
+				.bottom-line
+				.date= date
+		.project-page
 			.tl
 			.tr
 			.bl
 			.br
-			.tools= tools
-			.top-line
-			.title= title 
-			.description= description
-			.bottom-line
-			.date= date
+			.close
+			.inner
+				.inner-inner
+					.project-content
+						.header
+							.left
+								.title= title
+								.line
+								for t in tools
+									.tool= t
+							.description= description
+						.main
+							for i in imgs
+								img(src=i)
+		img(src= imgs[0])
 
-mixin projectPageThings(title,description,imgs,tools)
-	.project-page
-		.tl
-		.tr
-		.bl
-		.br
-		.close
-		.inner
-			.inner-inner
-				.project-content
-					.header
-						.left
-							.title= title
-							.line
-							for t in tools
-								.tool= t
-						.description= description
-					.main
-						for i in imgs
-							img(src=i)
+
 	
 doctype html
 html
@@ -63,42 +71,50 @@ html
 				.border
 		#content.banner-mode
 			.page.creative-code
-				.item
-					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
-					img(src="img/poste4.jpg")
-					+projectPageThings("Flow Field","description...",["img/poste4.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
 
-				.item
-					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
-					img(src="img/white_apartments.jpg")
+				+project("Flow Field","a code sketch","02.17.","description...",["img/poste4.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
 
-				.item
-					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
-					img(src="img/poste4.jpg")
 
-				.item
-					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
-					img(src="img/white_apartments.jpg")
+				+project("White Apartments","illustration experiment","02.17.","description...",["img/white_apartments.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
 
-				.item
-					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
-					img(src="img/poste4.jpg")
 
-				.item
-					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
-					img(src="img/white_apartments.jpg")
+				+project("Flow Field","a code sketch","02.17.","description...",["img/white_apartments.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
 
 			.page.3d-art
-				.item
-					+overlay("processing // photoshop","Flow Fields","a code sketch","02.17.")
-					img(src="img/poste4.jpg")
-				.item
-					+overlay("processing // photoshop","White Apartments","illustration exploration","03.18.")
-					img(src="img/white_apartments.jpg")
+			
+				+project("White Apartments","illustration experiment","02.17.","description...",["img/white_apartments.jpg","img/poste4.jpg","img/poste4.jpg"],["Processing","Photoshop"])
+
+
 			.page.illustration
-				.item
+	
 			.page.about
 				.item
+					.title Hi I'm Jane Fan
+				.item
+					.subtitle I'm a media arts and computer science student at the University of New South Wales, Sydney.
+				.item
+					h4 About Me
+					p.
+						I like to apply my programming knowledge in experimental and
+						artistic ways, including but not limited to, generative and
+						interactive art installatons, illustration, 3d art and front-end
+						programming. I'm always looking for new ways to apply my artistic and programming knowlege together.
+					p.
+						I'm due to graduate by the end of 2018 and looking for exciting 
+						developer/designer/artist roles. 
+				.item
+					h4 Skills
+					p.
+						Java // Python // Processing // Node.js // Pug // Stylus // Unity scripting // Computer vision // MaxMsp // Blender // Maya // Mudbox // Photoshop
+				.item
+					h4 Contact Me
+					p.
+						jfan9988 (@) gmail.com
+
+
+
+
+	
 
 		// - add this to enable browser reload on app restart
 		script(src="reload/reload.js")

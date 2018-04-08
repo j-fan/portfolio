@@ -3,7 +3,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #111;
 }
 body.no-scroll {
   overflow: hidden;
@@ -32,7 +32,7 @@ body #banner.active #banner-subtitle2 {
 body #banner #banner-title,
 body #banner #banner-subtitle,
 body #banner #banner-subtitle2 {
-  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  transition: transform 0.2s ease-in, opacity 0.2s ease-in;
   transform: translateY(-10px);
   opacity: 0;
 }
@@ -77,7 +77,7 @@ body #nav-bar {
   top: 0;
   left: 0;
   z-index: 99;
-  color: #000;
+  color: #fff;
   opacity: 0;
   transform: translateY(-10px);
 }
@@ -105,7 +105,7 @@ body #nav-bar .background {
   position: absolute;
   width: 100%;
   height: 80px;
-  background: #fff;
+  background: #111;
   box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
   z-index: -1;
 }
@@ -121,7 +121,7 @@ body #nav-bar .nav-item .border {
   height: 3px;
   width: 0;
   transition: width 0.3s ease;
-  background-color: #000;
+  background-color: #fff;
 }
 body #nav-bar .nav-item:hover,
 body #nav-bar .nav-item.active {
@@ -143,8 +143,8 @@ body #content {
   min-height: calc(100vh - 80px);
 }
 body #content .line {
-  height: 3px;
-  background-color: #000;
+  height: 2px;
+  background-color: #fff;
   width: 100%;
   margin: 20px 0;
 }
@@ -166,13 +166,38 @@ body #content .page.active {
 body #content .page.model-mode {
   height: 0;
 }
+body #content .page.about {
+  max-width: 600px;
+  margin: 0 auto;
+}
+body #content .page.about .item {
+  padding: 0 10px;
+  transform: translateY(10px);
+}
+body #content .page.about .item.active {
+  transition: height 0.3s ease-in, opacity 0.3s ease-in, transform 0.3s ease-in;
+  transform: translateY(0px);
+}
+body #content .page.about .title {
+  text-align: center;
+  font-size: 40px;
+  margin: 50px 0;
+}
+body #content .page.about .subtitle {
+  font-size: 20px;
+}
+body #content .page.about h4 {
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
 body #content .page .item {
   cursor: pointer;
   height: 0;
   padding: 0;
   opacity: 0;
-  margin-top: 20px;
+  margin-top: 10px;
   transition: none;
+  color: #fff;
 }
 body #content .page .item.active {
   transition: height 0.3s ease-in, opacity 0.3s ease-in, margin-top 0.3s ease-in;
@@ -180,10 +205,12 @@ body #content .page .item.active {
   margin-top: 0;
 }
 body #content .page .item .project-page {
+  color: #fff;
+  cursor: default;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: #111;
   opacity: 0;
   height: 100%;
   width: 100%;
@@ -202,24 +229,50 @@ body #content .page .item .project-page .tr,
 body #content .page .item .project-page .br,
 body #content .page .item .project-page .bl {
   position: fixed;
-  border-color: #000;
+  border-color: #fff;
   width: 40px;
   height: 40px;
   margin: 20px;
-  border-width: 3px;
+  border-width: 2px;
 }
 body #content .page .item .project-page .close {
+  cursor: pointer;
   position: fixed;
+  width: 60px;
+  height: 60px;
+  left: calc(50% - 30px);
+  z-index: 2;
+}
+body #content .page .item .project-page .close:before,
+body #content .page .item .project-page .close:after {
+  z-index: 1;
+  position: absolute;
+  width: 2px;
+  left: 50%;
+  top: 50%;
+  background-color: #fff;
+  content: " ";
+  height: 50%;
+}
+body #content .page .item .project-page .close:before {
+  transform: rotate(45deg);
 }
 body #content .page .item .project-page .close:after {
-  content: "close";
+  transform: rotate(-45deg);
+}
+body #content .page .item .project-page .close:hover:before,
+body #content .page .item .project-page .close:hover:after {
+  opacity: 0.7;
+}
+body #content .page .item .project-page .close:active:before,
+body #content .page .item .project-page .close:active:after {
+  opacity: 0.9;
 }
 body #content .page .item .project-page .inner {
   overflow: hidden;
   position: relative;
-  margin: 40px;
+  margin: 40px 80px;
   height: calc(100% - 80px);
-  pointer: auto;
 /* y no crossbrowser scrollbar styling*/
 }
 body #content .page .item .project-page .inner .inner-inner {
@@ -238,6 +291,10 @@ body #content .page .item .project-page .inner .inner-inner .project-content .he
   min-height: 300px;
   margin-top: 50px;
 }
+body #content .page .item .project-page .inner .inner-inner .project-content .header .line {
+  width: 0;
+  transition: width 0.3s ease-in 0.5s;
+}
 body #content .page .item .project-page .inner .inner-inner .project-content .header .left {
   width: 70%;
   margin-right: 20px;
@@ -246,6 +303,7 @@ body #content .page .item .project-page .inner .inner-inner .project-content .he
   font-size: 60px;
   line-height: 60px;
   font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
 }
 body #content .page .item .project-page .inner .inner-inner .project-content .header .left .tool {
   margin: 10px 0px;
@@ -253,6 +311,29 @@ body #content .page .item .project-page .inner .inner-inner .project-content .he
 }
 body #content .page .item .project-page .inner .inner-inner .project-content .header .description {
   width: 100%;
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .main {
+  transition-delay: 0.6s;
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .header,
+body #content .page .item .project-page .inner .inner-inner .project-content .main {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .header.active,
+body #content .page .item .project-page .inner .inner-inner .project-content .main.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .header {
+  transition-delay: 0.2s;
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .header.active .line {
+  width: 100%;
+}
+body #content .page .item .project-page .inner .inner-inner .project-content .main {
+  transition-delay: 0.7s;
 }
 body #content .page .item .overlay {
   -webkit-user-select: none;
@@ -264,7 +345,7 @@ body #content .page .item .overlay {
   align-items: center;
   justify-content: center;
   color: #fff;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.6);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -403,5 +484,21 @@ body #content .page .item img {
   body #content .page .item .project-page.active .inner {
     margin: 20px;
     height: calc(100% - 40px);
+  }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header {
+    display: block;
+  }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left {
+    width: 100%;
+  }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left .title {
+    font-size: 10vh;
+    line-height: 1;
+  }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left .tool {
+    margin: 0;
+  }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .description {
+    margin-top: 10px;
   }
 }
