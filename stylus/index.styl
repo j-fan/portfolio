@@ -90,6 +90,7 @@ body
 		color: $main-mode-text-color
 		opacity: 0
 		transform: translateY(-10px)
+		font-size: 24px
 		&.banner-mode
 			color: $banner-mode-text-color
 			min-height: $nav-bar-height
@@ -152,11 +153,13 @@ body
 			opacity: 0
 			overflow:hidden
 			padding: 0
+			display: none
 			&.active
 				padding-top: 30px
 				padding-bottom: 30px
 				height: auto
 				opacity: 1
+				display: block
 			&.model-mode
 				height: 0
 			&.about
@@ -392,7 +395,7 @@ body
 				#banner-subtitle
 					font-size: 6vw
 		#nav-bar
-			font-size: 4vw
+			font-size: 4.5vw
 			.nav-item
 				margin: 0 4px
 		#content
