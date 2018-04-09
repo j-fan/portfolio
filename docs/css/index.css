@@ -16,6 +16,9 @@ body a:hover {
   color: #fff;
   opacity: 0.8;
 }
+body p {
+  line-height: 1.7;
+}
 body #banner {
   color: #fff;
   -webkit-user-select: none;
@@ -190,6 +193,7 @@ body #content .page.about {
 body #content .page.about .item {
   padding: 0 10px;
   transform: translateY(10px);
+  cursor: default;
 }
 body #content .page.about .item.active {
   transition: height 0.3s ease-in, opacity 0.3s ease-in, transform 0.3s ease-in;
@@ -290,8 +294,8 @@ body #content .page .item .project-page .close:active:after {
 body #content .page .item .project-page .inner {
   overflow: hidden;
   position: relative;
-  margin: 40px 80px;
-  height: calc(100% - 80px);
+  margin: 80px;
+  height: calc(100% - 160px);
 /* y no crossbrowser scrollbar styling*/
 }
 body #content .page .item .project-page .inner .inner-inner {

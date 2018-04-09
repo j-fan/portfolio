@@ -21,6 +21,8 @@ body
 		&:hover
 			color: white
 			opacity: 0.8
+	p
+		line-height: 1.7
 
 	#banner
 		color: $banner-mode-text-color
@@ -168,6 +170,7 @@ body
 				.item
 					padding: 0 10px
 					transform: translateY(10px)
+					cursor: default
 					&.active
 						transition: height 0.3s ease-in,
 												opacity 0.3s ease-in,
@@ -253,8 +256,8 @@ body
 					.inner
 						overflow:hidden
 						position: relative
-						margin: 40px 80px
-						height: calc(100% - 80px)
+						margin: 80px
+						height: calc(100% - 160px)
 						/* y no crossbrowser scrollbar styling*/
 						.inner-inner
 							overflow-y: auto
