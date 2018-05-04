@@ -4,7 +4,7 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   background-color: #050505;
-  background-image: url("/img/noise.png");
+  background-image: url("../img/noise.png");
 }
 body.no-scroll {
   overflow: hidden;
@@ -123,7 +123,7 @@ body #nav-bar .background {
   width: 100%;
   height: 80px;
   background: #050505;
-  background-image: url("/img/noise.png");
+  background-image: url("../img/noise.png");
   box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
   z-index: -1;
 }
@@ -230,7 +230,7 @@ body #content .page .item .project-page {
   top: 0;
   left: 0;
   background-color: #050505;
-  background-image: url("/img/noise.png");
+  background-image: url("../img/noise.png");
   opacity: 0;
   height: 100%;
   width: 100%;
