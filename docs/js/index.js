@@ -70,12 +70,12 @@ var scrollAnims = {
       var banner = document.querySelector("#banner")
 
       if(pos <= navBarHeight && navBar.classList.contains("banner-mode")){
-        console.log("remove")
+        //console.log("remove")
         navBar.classList.remove("banner-mode")
         banner.classList.remove("banner-mode")
       }
       if(pos > navBarHeight && !navBar.classList.contains("banner-mode")){
-        console.log("add")
+        //console.log("add")
         navBar.classList.add("banner-mode")
         banner.classList.add("banner-mode")
       }
@@ -107,7 +107,7 @@ var content = {
   pages : document.querySelectorAll(".page"),
   init : function(){
     window.addEventListener('resize',function(event){
-      console.log("resizing")
+      //console.log("resizing")
       var activePage = document.querySelector(".page.active")
       if(activePage){
         var items = activePage.children
