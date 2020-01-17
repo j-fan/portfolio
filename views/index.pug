@@ -76,7 +76,6 @@ html
 				.border
 		#content.banner-mode
 			.page.creative-code
-
 				+project("Synergy",
 				         "vivid 2018 artwork",
 								 "05.18.",
@@ -102,6 +101,22 @@ html
 								 ["img/algo1.jpg","img/algo3.jpg"],
 								 ["Unity","C#"],
 								 "https://www.youtube.com/embed/heBQwd_XMw4")
+
+				+project("Strange Attraction",
+				         "unity sketch",
+								 "07.19.",
+								 ["Various strange attractor equations were used to drive particle motion to reveal their beautiful mathematical forms. Audio reactivity was also added to control speed and brightness with the use of FFT."],
+								 ["img/attractor1.jpg"],
+								 ["Unity","C#"],
+								 "https://www.youtube.com/embed/scnWbNIVyzc")
+
+				+project("Worms",
+				         "unity sketch",
+								 "05.19.",
+								 ["The worms in this sketch are programmatically generated geometry animated with curl noise and vortex equations."],
+								 ["img/worms1.png"],
+								 ["Unity","C#"],
+								 "https://www.youtube.com/embed/cgNPm-X9FDA")
 
 				+project("Energy",
 				         "interactive projection",
@@ -140,6 +155,13 @@ html
 
 
 			.page.3d-art
+				+project("Hong Kong",
+								 "Environment Modelling",
+								 "10.19.",
+								 ["Real time street model created in Blender Eevee"],
+								 ["img/HK1.jpg","img/HK2.jpg","img/HK3.jpg"],
+								 ["Blender"],
+								 "https://www.youtube.com/embed/zVZbKX6GW3g")
 				+project("Cyberpunk",
 								 "Environment Modelling",
 								 "06.17.",
@@ -153,6 +175,13 @@ html
 								 ["Exploration of skin and clothing material creation with Blender and Zbrush."],
 								 ["img/man1.jpg","img/man2.jpg"],
 								 ["Blender","Zbrush"],
+								 "")
+				+project("Orchids",
+								 "Organic Modelling",
+								 "10.19.",
+								 ["3D orchids with photoscanned textures and gold drops"],
+								 ["img/orchids1.jpg"],
+								 ["Blender"],
 								 "")
 				+project("Night Ride",
 								 "Environment Modelling",
@@ -251,6 +280,5 @@ html
 
 	
 
-		// - add this to enable browser reload on app restart
-		script(src="reload/reload.js")
+		//script(src="reload/reload.js")
 		script(src="js/index.js")
