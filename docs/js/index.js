@@ -202,21 +202,20 @@ var content = {
   },
 };
 
-// var overlay = {
-//   init : function(){
-//     var overlays = document.querySelectorAll(".overlay")
-//     overlays.forEach(function(overlay){
-//       overlay.addEventListener("mousemove",function(e){
-//         var overlay = e.currentTarget
-//         var xAmount = (window.innerWidth/2 - e.clientX) /-20
-//         var yAmount = (window.innerHeight/2 - e.clientY) /20
-//         var inner = overlay.querySelector(".overlay-inner")
-//         inner.style.transform = "rotateY(" + xAmount + "deg)" +
-//                                   " rotateX(" + yAmount + "deg)"
-//       })
-//     })
-//   }
-
-// }
+var overlay = {
+  init: function () {
+    var overlays = document.querySelectorAll(".overlay");
+    overlays.forEach(function (overlay) {
+      overlay.addEventListener("mousemove", function (e) {
+        var overlay = e.currentTarget;
+        var xAmount = (window.innerWidth / 2 - e.clientX) / -20;
+        var yAmount = (window.innerHeight / 2 - e.clientY) / 20;
+        var inner = overlay.querySelector(".overlay-inner");
+        inner.style.transform =
+          "rotateY(" + xAmount + "deg)" + " rotateX(" + yAmount + "deg)";
+      });
+    });
+  },
+};
 
 document.addEventListener("DOMContentLoaded", initSite());
