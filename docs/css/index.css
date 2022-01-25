@@ -473,7 +473,7 @@ body #content .page .item .br {
 body #content .page .item img {
   width: 100%;
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 700px) {
   body {
     font-size: 4vw;
   }
@@ -494,6 +494,7 @@ body #content .page .item img {
   }
   body #content .page .item .overlay .overlay-inner {
     padding: 10px;
+    transform-style: flat;
   }
   body #content .page .item .overlay .overlay-inner .tools {
     font-size: 4vw;
@@ -503,6 +504,14 @@ body #content .page .item img {
   }
   body #content .page .item .overlay .overlay-inner .description {
     font-size: 3.5vw;
+  }
+  body #content .page .item .overlay .overlay-inner .top-line,
+  body #content .page .item .overlay .overlay-inner .bottom-line,
+  body #content .page .item .overlay .overlay-inner .tools,
+  body #content .page .item .overlay .overlay-inner .title,
+  body #content .page .item .overlay .overlay-inner .description,
+  body #content .page .item .overlay .overlay-inner .date {
+    transform: none;
   }
   body #content .page .item .project-page.active .tl,
   body #content .page .item .project-page.active .tr,
@@ -520,18 +529,22 @@ body #content .page .item img {
     display: block;
     margin-bottom: 40px;
   }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header .title,
   body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left {
     width: 100%;
     margin-right: 0px;
   }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header .title .title,
   body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left .title {
-    font-size: 10vh;
+    font-size: 14vw;
     line-height: 1;
   }
+  body #content .page .item .project-page.active .inner .inner-inner .project-content .header .title .tool,
   body #content .page .item .project-page.active .inner .inner-inner .project-content .header .left .tool {
-    margin: 0;
+    display: none;
   }
   body #content .page .item .project-page.active .inner .inner-inner .project-content .description {
     margin-top: 10px;
+    line-height: 1.5;
   }
 }

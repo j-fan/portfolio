@@ -361,7 +361,6 @@ body
 						.description
 							transform : translateZ(30px)
 							font-size: 14px
-							
 						.date
 							transform : translateZ(20px)
 						.top-line
@@ -388,7 +387,7 @@ body
 					width: 100%
 
 
-@media only screen and (max-width: 400px)
+@media only screen and (max-width: 700px)
 	body
 		font-size: 4vw
 		#banner
@@ -409,12 +408,16 @@ body
 					.overlay
 						.overlay-inner
 							padding: 10px
+							transform-style: flat
 							.tools
 								font-size:4vw
 							.title
 								font-size:8vw
 							.description
 								font-size:3.5vw
+							.top-line,.bottom-line,.tools,.title,.description,.date
+								transform: none
+							
 					.project-page
 						&.active
 							.tl, .tr, .br, .bl
@@ -429,13 +432,15 @@ body
 										.header
 											display: block
 											margin-bottom: 40px
+											.title
 											.left
 												width: 100%
 												margin-right: 0px
 												.title
-													font-size: 10vh
+													font-size: 14vw
 													line-height: 1
 												.tool
-													margin: 0
+													display: none
 										.description
 											margin-top: 10px
+											line-height: 1.5
