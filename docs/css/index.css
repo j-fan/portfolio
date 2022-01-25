@@ -1,3 +1,7 @@
+html,
+body {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -25,14 +29,14 @@ body #banner {
   -moz-user-select: none;
   ms-user-select: none;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100% - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 body #banner.banner-mode #banner-bg {
-  height: 100vh;
+  height: 100%;
 }
 body #banner.active #banner-title,
 body #banner.active #banner-subtitle,
@@ -53,7 +57,7 @@ body #banner #banner-bg {
   left: 0;
   background: #050505;
   width: 100%;
-  height: calc(100vh - 0px);
+  height: calc(100% - 0px);
   z-index: -1;
   background-image: url("../img/banner-temp.jpg");
   background-size: cover;
@@ -158,7 +162,7 @@ body #nav-bar .divider::after {
 body #content {
   margin: 0 auto;
   max-width: 900px;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100% - 80px);
 }
 body #content .line {
   height: 2px;

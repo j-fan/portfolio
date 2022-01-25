@@ -7,6 +7,10 @@ $banner-anim-duration = 0.1s
 $main-page-color = #050505
 $noise = url('../img/noise.png')
 
+html, body {
+	height: 100%
+}
+
 body
 	margin: 0
 	font-family: 'Lato', sans-serif
@@ -30,14 +34,14 @@ body
 		-moz-user-select: none
 		ms-user-select: none
 		width: 100%
-		height:"calc(100vh - %s)" % $nav-bar-height
+		height:"calc(100% - %s)" % $nav-bar-height
 		display: flex
 		justify-content: center
 		align-items: center
 		flex-direction: column
 		&.banner-mode
 			#banner-bg
-				height: 100vh
+				height: 100%
 		&.active
 			#banner-title, #banner-subtitle, #banner-subtitle2
 				transform: translateY(0px)
@@ -52,7 +56,7 @@ body
 			left: 0
 			background: $main-page-color
 			width:100%
-			height:"calc(100vh - %s)" % ($nav-bar-height - $nav-bar-height-thin)
+			height:"calc(100% - %s)" % ($nav-bar-height - $nav-bar-height-thin)
 			z-index: -1
 			background-image url("../img/banner-temp.jpg")
 			background-size: cover
@@ -141,7 +145,7 @@ body
 	#content
 		margin: 0 auto
 		max-width: $content-width
-		min-height: "calc(100vh - %s)" % $nav-bar-height-thin
+		min-height: "calc(100% - %s)" % $nav-bar-height-thin
 		.line
 			height: 2px
 			background-color: $main-mode-text-color
