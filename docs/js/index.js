@@ -121,9 +121,8 @@ var content = {
       var projectClose = item.querySelector(".project-page .close");
       if (overlay) {
         overlay.addEventListener("click", function (e) {
-          var projectPage = e.currentTarget.parentElement.querySelector(
-            ".project-page"
-          );
+          var projectPage =
+            e.currentTarget.parentElement.querySelector(".project-page");
           projectPage.classList.add("active");
           document.body.classList.add("no-scroll");
           var content = projectPage.querySelector(".project-content").children;
@@ -203,10 +202,24 @@ var content = {
 };
 
 var overlay = {
+  isTouchDevice: function () {
+    return (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    );
+  },
   init: function () {
     var overlays = document.querySelectorAll(".overlay");
     overlays.forEach(function (overlay) {
       overlay.addEventListener("mousemove", function (e) {
+        // Do not use perspective effects on mobile because of Safari
+        // bug with 3D CSS transforms that causes the overlay to be
+        // drawn on top
+        if (!overlay.isTouchDevice()) {
+          return;
+        }
+
         var overlay = e.currentTarget;
         var xAmount = (window.innerWidth / 2 - e.clientX) / -20;
         var yAmount = (window.innerHeight / 2 - e.clientY) / 20;
